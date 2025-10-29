@@ -16,5 +16,5 @@ manageBtn.addEventListener("click", function () {
 
 resultsBtn.addEventListener("click", function () {
 	// Results button functionality
-	window.location.href = "results/results.html";
+	window.location.href = "quiz/results/results.html";
 });
