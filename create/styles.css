@@ -7,11 +7,13 @@ body {
 #header {
 	background-color: rgb(140, 60, 140);
 	color: rgb(70, 30, 70);
-	text-align: center;
-	padding: 10px 0;
-	font-size: 24px;
+	/* text-align: center; */
+	padding: 10px;
+	font-size: 24px; 
 	border-bottom-left-radius: 20%;
 	border-bottom-right-radius: 20%;
+	margin-top: 0;
+	height: 100px;
 }
 #footer {
 	background-color: rgb(140, 60, 140);
@@ -29,4 +31,20 @@ body {
 	padding: 20px;
 	border-radius: 8px;
 	box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+#backButton {
+	background-color: rgb(100, 50, 100);
+	color: white;
+	border: none;
+	padding: 10px 20px;
+	border-radius: 5px;
+	cursor: pointer;
+	font-size: 16px;
+	position: relative;
+	margin-left: 85%;
+	top: -78px;
+	
+}
+#backButton:hover {
+	background-color: rgb(124, 74, 124);
 }
