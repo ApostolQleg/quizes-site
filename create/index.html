@@ -9,9 +9,9 @@
 	<body>
 		<header class="header">
 			<h1>Create Page</h1>
-			<a href="/"><button class="backButton">Back</button></a>
+			<a href="/"  class="backButton">Back</a>
 		</header>
-		<div class="container">
+		<div class="container" id="container">
 			<div class="quizName">
 				<input type="text" class="quizTitle" placeholder="Назва опитування" />
 				<!-- <button class="createQuizButton">створити</button> -->
@@ -19,11 +19,13 @@
 			<!-- <h2>Додати питання</h2> -->
 			<!-- Питання буде додаватися сюди -->
 			<button class="addquestion" id="addquestion">+</button>
-			<div class="quizzesContainer">
+			
+			<!-- Перший елемент, який буде клонуватися  -->
+			<div class="quizzesContainer" id="quizzesContainer">
 				<!-- контейнер, як буде виглядати мій елемент  -->
 				<p class="questionNum">Запитання</p>
 				<input type="text" class="questionText" placeholder="Текст питання" />
-				<p>Варіанти відповіді</p>
+				<p class="variant">Варіанти відповіді</p>
 				<style>
 					.material-symbols-outlined {
 						font-variation-settings: "FILL" 0, "wght" 400, "GRAD" 0, "opsz" 24;
@@ -42,15 +44,18 @@
 						type="text"
 						id="questionText"
 						placeholder="Варіант відповіді"
-						value="Так"
+						value="Ні"
 					/>
 				</label>
 
 				<!-- Тут будуть відображатися створені опитування -->
+				 <button class="addvariant" id="addvariant">+</button>
 			</div>
-			<button class="saveQuizButton">Зберегти опитування</button>
+
+
+			<button class="saveQuizButton" id="saveQuizButton">Зберегти опитування</button>
 		</div>
 		<footer class="footer">Bogdanchik piska</footer>
-		<script src="script.js"></script>
+		<script src="/create/script.js"></script>
 	</body>
 </html>

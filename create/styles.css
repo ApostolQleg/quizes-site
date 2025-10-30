@@ -13,15 +13,18 @@ header {
 	background-color: rgb(140, 60, 140);
 	color: rgb(70, 30, 70);
 	text-align: center;
-	padding: 10px;
+	padding: 10px 0;
 	font-size: 24px;
-
 	border-radius: 0 0 20% 20%;
 	top: 0;
 	width: 100%;
-	margin-bottom: 2%;
-	margin-top: 0;
 	height: 100px;
+	display: flex;	
+	justify-content: space-between;
+	align-items: center;
+}
+header h1 {
+	margin-left: 5%;
 }
 footer {
 	background-color: rgb(140, 60, 140);
@@ -29,8 +32,8 @@ footer {
 	text-align: center;
 	padding: 10px 0;
 	font-size: 24px;
-	border-top-left-radius: 20%;
-	border-top-right-radius: 20%;
+	border-radius: 0 0 20% 20%;
+	width: 100%;
 }
 .container {
 	margin: 20px;
@@ -43,6 +46,7 @@ footer {
 	flex-direction: column;
 	flex: 1;
 	display: grid;
+	gap: 20px;
 	/* length: 100%; */
 }
 .backButton {
@@ -54,8 +58,9 @@ footer {
 	cursor: pointer;
 	font-size: 16px;
 	position: relative;
-	margin-left: 85%;
-	top: -78px;
+	margin-right: 5%;
+	/* top: -78px; */
+	text-decoration: none;
 }
 .backButton:hover {
 	background-color: rgb(124, 74, 124);
@@ -91,8 +96,11 @@ footer {
 	caret-color: white;
 	color: white;
 	cursor: text;
-	font-size: 20px;
-	margin: 10px 0;
+	font-size: 22px;
+	margin-top: 20px;
+	/* width: fit-content; */
+	display: inline-block;     /* 👈 робить ширину під контент */
+  width: fit-content;        /* 👈 підтримує сучасний підхід */ 
 }
 .quizTitle::placeholder {
 	color: rgba(255, 255, 255, 0.7);
@@ -106,18 +114,59 @@ footer {
 	cursor: pointer;
 	font-size: 16px;
 	width: 10vh;
+	height: 50px;
 }
 .quizzesContainer {
-	margin: 20px 0;
 	min-height: 100px;
 	background-color: rgb(205, 138, 205);
 	padding: 10px 20px;
 	border-radius: 8px;
 	display: grid;
 	flex-direction: column;
-	gap: 1px;
+	gap: 3px;
 }
 .questionNum {
 	margin: 0px;
 	font-size: 20px;
 }
+.questionText {
+	width: 100%;
+	border: none;
+	background-color: transparent; 
+	border-bottom: 1px solid white;
+	outline: none;
+	caret-color: rgb(22, 20, 20);
+	color: rgb(0, 0, 0);
+	cursor: text;
+	font-size: 18px;
+	margin-bottom: 10px;
+	display: block;
+	inline-size: fit-content;
+
+}
+.questionText::placeholder {
+  color: rgb(45, 45, 45); /* змінює колір тексту плейсхолдера */
+  opacity: 1;                /* робить його повністю непрозорим */
+}
+
+.variant {
+	font-size: 18px;
+	margin: 10px 0 5px 0;
+}
+.addvariant{
+	background-color: rgb(100, 50, 100);
+	color: white;
+	border: none;
+	padding: 5px 10px;
+	border-radius: 5px;
+	cursor: pointer;
+	font-size: 16px;
+	width: 5vh;
+	height: 30px;
+	margin-left: 20px;
+}
+.addvariant:hover {
+	background-color: rgb(124, 74, 124);
+}
+
+
