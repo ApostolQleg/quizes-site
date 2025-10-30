@@ -1,32 +1,60 @@
 body {
 	font-family: Arial, sans-serif;
-	background-color: rgb(70, 30, 70);
+	background-color: rgb(80, 12, 63);
 	margin: 0;
 	padding: 0;
+	height: 100vh;
+	display: flex;
+	flex-direction: column;
+}
+.stalinist-one-regular {
+	font-family: "Stalinist One", sans-serif;
+	font-weight: 200;
+	font-style: normal;
 }
 #header {
-	background-color: rgb(140, 60, 140);
-	color: rgb(70, 30, 70);
+	background-color: rgb(146, 6, 146);
+	color: rgb(27, 0, 25);
 	text-align: center;
-	padding: 10px 0;
-	font-size: 24px;
-	border-bottom-left-radius: 20%;
-	border-bottom-right-radius: 20%;
+	padding: 2% 0;
+	font-size: clamp(15px, 3vw, 30px);
+	height: 10%;
+	min-height: 50px;
+	border-bottom-left-radius: 10%;
+	border-bottom-right-radius: 10%;
+	top: 0;
+	width: 100%;
+	margin-bottom: 2%;
+	font-family: "Stalinist One", sans-serif;
+	image-rendering: pixelated;
 }
 #footer {
-	background-color: rgb(140, 60, 140);
-	color: rgb(70, 30, 70);
+	background-color: rgb(146, 6, 146);
+	color: rgb(27, 0, 25);
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-end;
 	text-align: center;
-	padding: 10px 0;
-	font-size: 24px;
-	border-top-left-radius: 20%;
-	border-top-right-radius: 20%;
+	padding: 2% 0;
+	font-size: clamp(5px, 3vw, 10px);
+	border-top-left-radius: 10%;
+	border-top-right-radius: 10%;
+	height: 5%;
+	bottom: 0;
+	width: 100%;
+	margin-top: 2%;
+	font-family: "Stalinist One", sans-serif;
 }
 #container {
-	margin: 20px;
-	min-height: 500px;
-	background-color: rgb(35, 15, 35);
-	padding: 20px;
-	border-radius: 8px;
-	box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+	flex: 1;
+	width: 90%;
+	margin: 0 auto;
+	background-color: rgb(34, 14, 34);
+	padding: 2%;
+	border-radius: 20px;
+	box-shadow: 0 0 10px rgba(114, 0, 104, 0.692);
+	display: grid;
+	grid-template-columns: repeat(auto-fill, minmax(20vw, 21vw));
+	grid-template-rows: repeat(auto-fill, minmax(20vw, 22vw));
+	gap: 2%;
 }

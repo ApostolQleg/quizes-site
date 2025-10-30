@@ -16,6 +16,9 @@ body {
 	background-color: rgb(146, 6, 146);
 	color: rgb(27, 0, 25);
 	text-align: center;
+	justify-content: center;
+	display: flex;
+	flex-direction: row;
 	padding: 2% 0;
 	font-size: clamp(15px, 3vw, 30px);
 	height: 10%;
@@ -27,6 +30,10 @@ body {
 	margin-bottom: 2%;
 	font-family: "Stalinist One", sans-serif;
 	image-rendering: pixelated;
+}
+#header img {
+	height: 1.5em;
+	vertical-align: middle;
 }
 #footer {
 	background-color: rgb(146, 6, 146);
@@ -58,7 +65,6 @@ body {
 	grid-template-rows: repeat(auto-fill, minmax(20vw, 22vw));
 	gap: 2%;
 }
-
 .quiz {
 	background-color: rgb(233, 14, 178);
 	color: rgb(35, 15, 35);
@@ -72,4 +78,5 @@ body {
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
+	font-family: "Stalinist One", sans-serif;
 }

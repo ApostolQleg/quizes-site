@@ -1,15 +1,14 @@
-body,
-html {
+html,
+body {
 	font-family: Arial, sans-serif;
 	background-color: rgb(70, 30, 70);
 	margin: 0;
 	padding: 0;
 	display: flex;
 	flex-direction: column;
+	min-height: 100vh;
 }
-main {
-	flex: 1; /* штовхає footer вниз */
-}
+
 header {
 	background-color: rgb(140, 60, 140);
 	color: rgb(70, 30, 70);
@@ -40,9 +39,11 @@ footer {
 	padding: 20px;
 	border-radius: 8px;
 	box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-	display: flex;
+	/* display: flex; */
 	flex-direction: column;
-	
+	flex: 1;
+	display: grid;
+	/* length: 100%; */
 }
 .backButton {
 	background-color: rgb(100, 50, 100);
@@ -75,6 +76,12 @@ footer {
 .saveQuizButton:hover {
 	background-color: rgb(124, 74, 124);
 }
+.quizName {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	margin-bottom: 0px;
+}
 .quizTitle {
 	border: none;
 	background-color: transparent;
@@ -84,9 +91,33 @@ footer {
 	caret-color: white;
 	color: white;
 	cursor: text;
-	font-size: 18px;
-	margin: 10px;
+	font-size: 20px;
+	margin: 10px 0;
 }
 .quizTitle::placeholder {
 	color: rgba(255, 255, 255, 0.7);
+}
+.addquestion {
+	background-color: rgb(100, 50, 100);
+	color: white;
+	border: none;
+	padding: 10px 20px;
+	border-radius: 5px;
+	cursor: pointer;
+	font-size: 16px;
+	width: 10vh;
+}
+.quizzesContainer {
+	margin: 20px 0;
+	min-height: 100px;
+	background-color: rgb(205, 138, 205);
+	padding: 10px 20px;
+	border-radius: 8px;
+	display: grid;
+	flex-direction: column;
+	gap: 1px;
+}
+.questionNum {
+	margin: 0px;
+	font-size: 20px;
 }

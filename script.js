@@ -19,38 +19,44 @@ quizzes.forEach((quiz) => {
 });
 
 // Load quizzes from localStorage
-// localStorage.setItem(
-// 	"quizzes",
-// 	JSON.stringify([
-// 		{
-// 			title: "Is Bogdan gay?",
-// 			author: "Oleg",
-// 			questions: 1,
-// 		},
-// 		{
-// 			title: "Yes he is",
-// 			author: "Oleg",
-// 			questions: 2,
-// 		},
-// 		{
-// 			title: "And I quite like it",
-// 			author: "Oleg",
-// 			questions: 3,
-// 		},
-// 		{
-// 			title: "If you know what I mean",
-// 			author: "Oleg",
-// 			questions: 4,
-// 		},
-// 		{
-// 			title: "You know what I mean",
-// 			author: "Oleg",
-// 			questions: 5,
-// 		},
-// 		{
-// 			title: "And we all know it",
-// 			author: "Oleg",
-// 			questions: 6,
-// 		},
-// 	])
-// );
+localStorage.setItem(
+	"quizzes",
+	JSON.stringify([
+		{
+			title: "Is Bogdan gay?",
+			author: "Oleg",
+			questions: 1,
+			index: 0,
+		},
+		{
+			title: "Yes he is",
+			author: "Oleg",
+			questions: 2,
+			index: 1,
+		},
+		{
+			title: "And I quite like it",
+			author: "Oleg",
+			questions: 3,
+			index: 2,
+		},
+		{
+			title: "If you know what I mean",
+			author: "Oleg",
+			questions: 4,
+			index: 3,
+		},
+		{
+			title: "You know what I mean",
+			author: "Oleg",
+			questions: 5,
+			index: 4,
+		},
+		{
+			title: "And we all know it",
+			author: "Oleg",
+			questions: 6,
+			index: 5,
+		},
+	])
+);
