@@ -1,20 +1,56 @@
 const container = document.getElementById("container");
-const createBtn = document.getElementById("create");
-const manageBtn = document.getElementById("manage");
-const resultsBtn = document.getElementById("results");
+const create = document.getElementById("create");
 
-// button functionality
-createBtn.addEventListener("click", function () {
-	// Create button functionality
-	window.location.href = "create/create.html";
+const quizzes = JSON.parse(localStorage.getItem("quizzes")) || [];
+
+// create quiz buttons size
+quizzes.forEach((quiz) => {
+	const button = document.createElement("button");
+	button.className = "quiz";
+	button.innerHTML = quiz.title + "<br>By: " + quiz.author + "<br>Questions: " + quiz.questions;
+	container.appendChild(button);
+	// Start quiz on button click
+	button.addEventListener("click", () => {
+		// Load the selected quiz
+		const selectedQuiz = quiz;
+		localStorage.setItem("currentQuiz", JSON.stringify(selectedQuiz));
+		window.location.href = "/quiz";
+	});
 });
 
-manageBtn.addEventListener("click", function () {
-	// Manage button functionality
-	window.location.href = "manage/manage.html";
-});
-
-resultsBtn.addEventListener("click", function () {
-	// Results button functionality
-	window.location.href = "quiz/results/results.html";
-});
+// Load quizzes from localStorage
+// localStorage.setItem(
+// 	"quizzes",
+// 	JSON.stringify([
+// 		{
+// 			title: "Is Bogdan gay?",
+// 			author: "Oleg",
+// 			questions: 1,
+// 		},
+// 		{
+// 			title: "Yes he is",
+// 			author: "Oleg",
+// 			questions: 2,
+// 		},
+// 		{
+// 			title: "And I quite like it",
+// 			author: "Oleg",
+// 			questions: 3,
+// 		},
+// 		{
+// 			title: "If you know what I mean",
+// 			author: "Oleg",
+// 			questions: 4,
+// 		},
+// 		{
+// 			title: "You know what I mean",
+// 			author: "Oleg",
+// 			questions: 5,
+// 		},
+// 		{
+// 			title: "And we all know it",
+// 			author: "Oleg",
+// 			questions: 6,
+// 		},
+// 	])
+// );

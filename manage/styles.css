@@ -5,7 +5,7 @@ body {
 	padding: 0;
 	height: 100vh;
 	display: flex;
-  	flex-direction: column;
+	flex-direction: column;
 }
 #header {
 	background-color: rgb(146, 6, 146);
@@ -17,10 +17,10 @@ body {
 	min-height: 50px;
 	border-bottom-left-radius: 10%;
 	border-bottom-right-radius: 10%;
-	top : 0;
-	width : 100%;
+	top: 0;
+	width: 100%;
 	margin-bottom: 2%;
-	font-family: 'Stalinist One', sans-serif;
+	font-family: "Stalinist One", sans-serif;
 }
 #footer {
 	background-color: rgb(146, 6, 146);
@@ -32,14 +32,15 @@ body {
 	border-top-left-radius: 10%;
 	border-top-right-radius: 10%;
 	height: 5%;
-	position : relative;
-	bottom : 0;
-	width : 100%;
+	position: relative;
+	bottom: 0;
+	width: 100%;
 	margin-top: 2%;
+	
 }
 #container {
 	/* margin: 10% ; */
-	flex : 1;
+	flex: 1;
 	width: 90%;
 	/* height: 50%; */
 	margin: 0 auto;
@@ -50,7 +51,7 @@ body {
 	box-shadow: 0 0 10px rgba(114, 0, 104, 0.692);
 }
 .stalinist-one-regular {
-  font-family: "Stalinist One", sans-serif;
-  font-weight: 400;
-  font-style: normal;
+	font-family: "Stalinist One", sans-serif;
+	font-weight: 400;
+	font-style: normal;
 }

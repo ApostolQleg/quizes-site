@@ -1,21 +1,30 @@
-body {
+body,
+html {
 	font-family: Arial, sans-serif;
 	background-color: rgb(70, 30, 70);
 	margin: 0;
 	padding: 0;
+	display: flex;
+	flex-direction: column;
 }
-#header {
+main {
+	flex: 1; /* штовхає footer вниз */
+}
+header {
 	background-color: rgb(140, 60, 140);
 	color: rgb(70, 30, 70);
-	/* text-align: center; */
+	text-align: center;
 	padding: 10px;
-	font-size: 24px; 
-	border-bottom-left-radius: 20%;
-	border-bottom-right-radius: 20%;
+	font-size: 24px;
+
+	border-radius: 0 0 20% 20%;
+	top: 0;
+	width: 100%;
+	margin-bottom: 2%;
 	margin-top: 0;
 	height: 100px;
 }
-#footer {
+footer {
 	background-color: rgb(140, 60, 140);
 	color: rgb(70, 30, 70);
 	text-align: center;
@@ -24,15 +33,18 @@ body {
 	border-top-left-radius: 20%;
 	border-top-right-radius: 20%;
 }
-#container {
+.container {
 	margin: 20px;
 	min-height: 500px;
 	background-color: rgb(35, 15, 35);
 	padding: 20px;
 	border-radius: 8px;
 	box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+	display: flex;
+	flex-direction: column;
+	
 }
-#backButton {
+.backButton {
 	background-color: rgb(100, 50, 100);
 	color: white;
 	border: none;
@@ -43,8 +55,38 @@ body {
 	position: relative;
 	margin-left: 85%;
 	top: -78px;
-	
 }
-#backButton:hover {
+.backButton:hover {
 	background-color: rgb(124, 74, 124);
+}
+.saveQuizButton {
+	background-color: rgb(100, 50, 100);
+	color: white;
+	border: none;
+	padding: 10px 20px;
+	border-radius: 5px;
+	cursor: pointer;
+	font-size: 16px;
+	display: block;
+	margin-top: auto;
+	bottom: 5%; /* відступ від низу вікна */
+	right: 4%; /* по центру горизонтально */
+}
+.saveQuizButton:hover {
+	background-color: rgb(124, 74, 124);
+}
+.quizTitle {
+	border: none;
+	background-color: transparent;
+	text-align: left;
+	border-bottom: 1px solid white;
+	outline: none;
+	caret-color: white;
+	color: white;
+	cursor: text;
+	font-size: 18px;
+	margin: 10px;
+}
+.quizTitle::placeholder {
+	color: rgba(255, 255, 255, 0.7);
 }
