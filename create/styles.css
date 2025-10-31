@@ -121,14 +121,24 @@ footer {
 	background-color: rgb(205, 138, 205);
 	padding: 10px 20px;
 	border-radius: 8px;
+	position: relative;
 	display: grid;
 	flex-direction: column;
 	gap: 3px;
+	max-width: 800px;
 }
 .questionNum {
 	margin: 0px;
 	font-size: 21px;
 }
+
+.material-symbols-outlined {
+	text-align: right;
+	margin-top: 12px;
+	right: 15px;
+	position: absolute; 
+}
+
 .questionText {
 	width: 100%;
 	border: none;
