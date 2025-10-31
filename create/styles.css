@@ -129,7 +129,7 @@ footer {
 }
 .questionNum {
 	margin: 0px;
-	font-size: 21px;
+	font-size: 20px;
 }
 
 .material-symbols-outlined {
@@ -180,3 +180,18 @@ footer {
 }
 
 
+/* input[type="text"].variantText {
+	width: 90%;
+	border: none;
+	background-color: transparent; 
+	border-bottom: 1px solid white;
+	outline: none;
+	caret-color: rgb(22, 20, 20);
+	color: rgb(0, 0, 0);
+	cursor: text;
+	font-size: 16px;
+}
+input[type="text"].variantText::placeholder {
+  color: rgb(45, 45, 45); /* змінює колір тексту плейсхолдера */
+  opacity: 1;                /* робить його повністю непрозорим */
+} */
