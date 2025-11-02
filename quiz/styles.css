@@ -53,8 +53,37 @@ body {
 	padding: 2%;
 	border-radius: 20px;
 	box-shadow: 0 0 10px rgba(114, 0, 104, 0.692);
-	display: grid;
-	grid-template-columns: repeat(auto-fill, minmax(20vw, 21vw));
-	grid-template-rows: repeat(auto-fill, minmax(20vw, 22vw));
+	display: flex;
+	flex-direction: column;     
+	align-items: center;
 	gap: 2%;
 }
+.backButton {
+	background-color: rgb(100, 50, 100);
+	color: white;
+	border: none;
+	padding: 10px 20px;
+	border-radius: 5px;
+	cursor: pointer;
+	font-size: 16px;
+	position: relative;
+	margin-right: 5%;
+	/* top: -78px; */
+	text-decoration: none;
+}
+.question-block {
+	background-color: white;
+	width: 90%;
+}
+.submit {
+	background-color: cyan;
+}
+.quiz-name {
+	background: white;
+	text-align: center;
+	font-size: clamp(10px, 4vw, 20px);
+	margin-bottom: 10px;
+	font-family: "Stalinist One", sans-serif;
+}
+
+/* Я додав рандомні стилі, просто щоб бачити як це виглядає */
