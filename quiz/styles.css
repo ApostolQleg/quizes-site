@@ -85,5 +85,12 @@ body {
 	margin-bottom: 10px;
 	font-family: "Stalinist One", sans-serif;
 }
+.total {
+	background: white;
+	text-align: center;
+	font-size: clamp(10px, 4vw, 20px);
+	margin-bottom: 10px;
+	font-family: "Stalinist One", sans-serif;
+}
 
 /* Я додав рандомні стилі, просто щоб бачити як це виглядає */
