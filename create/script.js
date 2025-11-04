@@ -1,6 +1,6 @@
 const addQuestion = document.getElementById("addquestion");
 const container = document.getElementById("container");
-const saveQuizButton = document.getElementById("saveQuizButton");
+//const saveQuizButton = document.getElementById("saveQuizButton");
 
 const quizzesContainer = document.getElementById("quizzesContainer");
 // const deleteQuestion = document.querySelectorAll(".deletequestion"); 
@@ -107,6 +107,102 @@ container.addEventListener('click', function(el) {
   }
 } 
 });
+
+
+// приклад роботи localstorage
+
+
+//Блок коду для збереження тесту в localStorage
+
+const saveQuizButton = document.getElementById("saveQuizButton");
+const input = document.querySelector('.quizTitle');
+const questionName = document.querySelector('.questionText');
+// перевірка чи є такий ключ в локал сторедж, якщо нема ми його створюємо
+// створив локал для сторінки мейн
+let manageQuiz = JSON.parse(localStorage.getItem('manageQuizes'));
+if (!manageQuiz){
+	manageQuiz = {
+	title: ["англ тест"],
+	author: ["Vlad"],
+	questions: [10,],
+	index: [0],
+	};
+};
+
+// // створення локал для сторінкии з питаннями 
+// поки не готовий код
+const questionsData = {
+	"mixed": true,
+  "questions": [
+    {
+      "id": 0,
+      "questionText": "",
+      "variants": [],
+      "rightAnswers": [],
+      "questionType": "",
+    },
+  ]
+}
+
+
+
+// "mixed": true,
+//   "questions": [
+//     {
+//       "id": 0,
+//       "questionText": "Яка столиця Франції?",
+//       "variants": ["Париж", "Лондон", "Берлін", "Рим"],
+//       "rightAnswers": [0],
+//       "questionType": "Ticker"
+//     },
+//     {
+//       "id": 1,
+//       "questionText": "Скільки буде 2+2?",
+//       "variants": ["3", "4", "5"],
+//       "rightAnswers": [1],
+//       "questionType": "Ticker"
+//     }
+//   ]
+
+
+const indexCounters = manageQuiz.index; 
+let indexCounter = indexCounters[indexCounters.length - 1];
+
+saveQuizButton.addEventListener('click', () => {
+	indexCounter++;
+	// //створення об'єкту для збереження даних
+	// // 	два об'єкти: 1. для збереження інформації про опитування(home) 2. для перетворення в JSON
+
+	// const storedData = {};
+	// storedData.title = input.value;
+	
+
+	// //перетягування в localStorage
+	// localStorage.setItem('quizTitle', JSON.stringify(storedData));
+	// const output = JSON.parse(localStorage.getItem('quizTitle'));
+	
+	
+	// alert(output.title);
+
+	// пуш значень для main storage
+
+	manageQuiz.title.push(input.value);
+	manageQuiz.author.push('треба додати цю фічу');
+	manageQuiz.questions.push(counter - 1);
+	manageQuiz.index.push(indexCounter);
+
+
+	//додаю в локалсторедж
+	localStorage.setItem('manageQuizes', JSON.stringify(manageQuiz));
+	const output = JSON.parse(localStorage.getItem('manageQuizes'));
+
+	console.log(output);
+
+	// пуш значеня в quiz storage
+	
+});
+
+
 
 // Creating modules
 // document.getElementById('create-module').addEventListener('click', function() {
