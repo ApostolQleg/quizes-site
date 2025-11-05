@@ -1,13 +1,14 @@
 const container = document.getElementById("container");
 const create = document.getElementById("create");
 
-const quizzes = JSON.parse(localStorage.getItem("quizzes")) || [];
+const quizzes = JSON.parse(localStorage.getItem("storage"))?.quizzes || [];
 
-// create quiz buttons size
+// Load quizzes from localStorage and create quiz buttons
 quizzes.forEach((quiz) => {
 	const button = document.createElement("button");
 	button.className = "quiz";
-	button.innerHTML = quiz.title + "<br>By: " + quiz.author + "<br>Questions: " + quiz.questions;
+	button.innerHTML =
+		quiz.title + "<br>By: " + quiz.author + "<br>Questions: " + quiz.questions.length;
 	container.appendChild(button);
 	// Start quiz on button click
 	button.addEventListener("click", () => {
@@ -18,45 +19,34 @@ quizzes.forEach((quiz) => {
 	});
 });
 
-// Load quizzes from localStorage
+// Test quizzes
 localStorage.setItem(
-	"quizzes",
-	JSON.stringify([
-		{
-			title: "Is Bogdan gay?",
-			author: "Oleg",
-			questions: 1,
-			index: 0,
-		},
-		{
-			title: "Yes he is",
-			author: "Oleg",
-			questions: 2,
-			index: 1,
-		},
-		{
-			title: "And I quite like it",
-			author: "Oleg",
-			questions: 3,
-			index: 2,
-		},
-		{
-			title: "If you know what I mean",
-			author: "Oleg",
-			questions: 4,
-			index: 3,
-		},
-		{
-			title: "You know what I mean",
-			author: "Oleg",
-			questions: 5,
-			index: 4,
-		},
-		{
-			title: "And we all know it",
-			author: "Oleg",
-			questions: 6,
-			index: 5,
-		},
-	])
+	"storage",
+	JSON.stringify({
+		quizzes: [
+			{
+				title: "Тест з англійської мови (A1)",
+				author: "Dima",
+				description: "Перевір свої базові знання англійських слів і граматики.",
+				questions: [
+					{
+						text: "Яке з наведених слів означає 'кіт'?",
+						options: [
+							{ text: "dog", id: 1, isCorrect: false },
+							{ text: "cat", id: 2, isCorrect: true },
+							{ text: "bird", id: 3, isCorrect: false },
+						],
+					},
+					{
+						text: "Яке з наведених слів означає 'кіт'?",
+						options: [
+							{ text: "dog", id: 1, isCorrect: false },
+							{ text: "cat", id: 2, isCorrect: true },
+							{ text: "bird", id: 3, isCorrect: false },
+						],
+					},
+				],
+			},
+		],
+	})
 );

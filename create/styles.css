@@ -19,7 +19,7 @@ header {
 	top: 0;
 	width: 100%;
 	height: 100px;
-	display: flex;	
+	display: flex;
 	justify-content: space-between;
 	align-items: center;
 }
@@ -53,14 +53,17 @@ footer {
 	background-color: rgb(100, 50, 100);
 	color: white;
 	border: none;
-	padding: 10px 20px;
-	border-radius: 5px;
+	/* padding: 2px 5px; */
+	/* border-radius: 5px; */
 	cursor: pointer;
 	font-size: 16px;
 	position: relative;
 	margin-right: 5%;
 	/* top: -78px; */
 	text-decoration: none;
+	image-rendering: pixelated;
+	width: 20px;
+	height: 20px;
 }
 .backButton:hover {
 	background-color: rgb(124, 74, 124);
@@ -99,8 +102,8 @@ footer {
 	font-size: 22px;
 	margin-top: 20px;
 	/* width: fit-content; */
-	display: inline-block;     /* 👈 робить ширину під контент */
-  width: fit-content;        /* 👈 підтримує сучасний підхід */ 
+	display: inline-block; /* 👈 робить ширину під контент */
+	width: fit-content; /* 👈 підтримує сучасний підхід */
 }
 .quizTitle::placeholder {
 	color: rgba(255, 255, 255, 0.7);
@@ -136,13 +139,13 @@ footer {
 	text-align: right;
 	margin-top: 12px;
 	right: 15px;
-	position: absolute; 
+	position: absolute;
 }
 
 .questionText {
 	width: 100%;
 	border: none;
-	background-color: transparent; 
+	background-color: transparent;
 	border-bottom: 1px solid white;
 	outline: none;
 	caret-color: rgb(22, 20, 20);
@@ -152,18 +155,17 @@ footer {
 	margin-bottom: 10px;
 	display: block;
 	inline-size: fit-content;
-
 }
 .questionText::placeholder {
-  color: rgb(45, 45, 45); /* змінює колір тексту плейсхолдера */
-  opacity: 1;                /* робить його повністю непрозорим */
+	color: rgb(45, 45, 45); /* змінює колір тексту плейсхолдера */
+	opacity: 1; /* робить його повністю непрозорим */
 }
 
 .variant {
 	font-size: 18px;
 	margin: 10px 0 5px 0;
 }
-.addvariant{
+.addvariant {
 	background-color: rgb(100, 50, 100);
 	color: white;
 	border: none;
@@ -178,20 +180,3 @@ footer {
 .addvariant:hover {
 	background-color: rgb(124, 74, 124);
 }
-
-
-/* input[type="text"].variantText {
-	width: 90%;
-	border: none;
-	background-color: transparent; 
-	border-bottom: 1px solid white;
-	outline: none;
-	caret-color: rgb(22, 20, 20);
-	color: rgb(0, 0, 0);
-	cursor: text;
-	font-size: 16px;
-}
-input[type="text"].variantText::placeholder {
-  color: rgb(45, 45, 45); /* змінює колір тексту плейсхолдера */
-  opacity: 1;                /* робить його повністю непрозорим */
-} */

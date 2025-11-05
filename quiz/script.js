@@ -1,48 +1,5 @@
 const correctAnswer = "A";
 
-localStorage.setItem(
-	"quizzes",
-	JSON.stringify([
-		{
-			title: "Is Bogdan gay?",
-			author: "Oleg",
-			questions: 1,
-			index: 0,
-		},
-		{
-			title: "Yes he is",
-			author: "Oleg",
-			questions: 2,
-			index: 1,
-		},
-		{
-			title: "And I quite like it",
-			author: "Oleg",
-			questions: 3,
-			index: 2,
-		},
-		{
-			title: "If you know what I mean",
-			author: "Oleg",
-			questions: 4,
-			index: 3,
-		},
-		{
-			title: "You know what I mean",
-			author: "Oleg",
-			questions: 5,
-			index: 4,
-		},
-		{
-			title: "And we all know it",
-			author: "Oleg",
-			questions: 6,
-			index: 5,
-		},
-	])
-);
-
-
 const quizzes = localStorage.getItem("quizzes") || [];
 
 

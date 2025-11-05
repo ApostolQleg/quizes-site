@@ -6,12 +6,29 @@
 		<title>Create</title>
 		<link rel="stylesheet" href="styles.css" />
 
-		<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&icon_names=delete" />
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400..700&display=swap"
+			rel="stylesheet"
+		/>
+
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Stalinist+One&display=swap"
+			rel="stylesheet"
+		/>
+
+		<link
+			rel="stylesheet"
+			href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&icon_names=delete"
+		/>
 	</head>
 	<body>
 		<header class="header">
 			<h1>Create Page</h1>
-			<a href="/"  class="backButton">Back</a>
+			<a href="/" class="backButton"><img src="/back-icon.png" /></a>
 		</header>
 		<div class="container" id="container">
 			<div class="quizName">
@@ -21,7 +38,7 @@
 			<!-- <h2>Додати питання</h2> -->
 			<!-- Питання буде додаватися сюди -->
 			<button class="addquestion" id="addquestion">+</button>
-			
+
 			<!-- Перший елемент, який буде клонуватися  -->
 			<div class="quizzesContainer" id="quizzesContainer">
 				<!-- контейнер, як буде виглядати мій елемент  -->
@@ -35,7 +52,7 @@
 					}
 				</style>
 				<label>
-					<input type="checkbox" name="option1" value="1" id=" true" /><input
+					<input type="checkbox" name="option1" value="1" class="isCorrect" /><input
 						type="text"
 						id="questionText"
 						placeholder="Варіант відповіді"
@@ -43,7 +60,7 @@
 					/>
 				</label>
 				<label>
-					<input type="checkbox" name="option1" value="1" id=" false" /><input
+					<input type="checkbox" name="option1" value="1" class="sCorrect" /><input
 						type="text"
 						id="questionText"
 						placeholder="Варіант відповіді"
@@ -52,9 +69,8 @@
 				</label>
 
 				<!-- Тут будуть відображатися створені опитування -->
-				 <button class="addvariant" id="addvariant">+</button>
+				<button class="addvariant" id="addvariant">+</button>
 			</div>
-
 
 			<button class="saveQuizButton" id="saveQuizButton">Зберегти опитування</button>
 		</div>
