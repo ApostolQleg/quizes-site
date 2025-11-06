@@ -1,4 +1,5 @@
-html,
+@import "/templates/styles.css";
+/* html,
 body {
 	font-family: Arial, sans-serif;
 	background-color: rgb(70, 30, 70);
@@ -7,9 +8,8 @@ body {
 	display: flex;
 	flex-direction: column;
 	min-height: 100vh;
-}
-
-header {
+} */
+/* header {
 	background-color: rgb(140, 60, 140);
 	color: rgb(70, 30, 70);
 	text-align: center;
@@ -22,9 +22,25 @@ header {
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
+} */
+/* прописав затичку, бо це піздець, а не темплейт, 
+   він працює норм лише на main і всееееее
+ */
+header {
+	/* text-align: center; */
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	position: relative;
+	max-height: 100px;
+	font-size: 25px;
 }
 header h1 {
-	margin-left: 5%;
+	text-align: center;
+	margin: auto;
+	/* left: 50%; */
+	/* transform: translateX(-50%); */
+	/* margin-left: 5%; */
 }
 footer {
 	background-color: rgb(140, 60, 140);
@@ -32,7 +48,7 @@ footer {
 	text-align: center;
 	padding: 10px 0;
 	font-size: 24px;
-	border-radius: 0 0 20% 20%;
+	border-radius: 20% 20% 0 0;
 	width: 100%;
 }
 .container {
@@ -44,26 +60,30 @@ footer {
 	box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
 	/* display: flex; */
 	flex-direction: column;
-	flex: 1;
+	/* flex: 1; */
 	display: grid;
 	gap: 20px;
 	/* length: 100%; */
 }
+
 .backButton {
+	/* margin: 0; */
+	margin-right: 5%;
+	position: absolute;
 	background-color: rgb(100, 50, 100);
 	color: white;
 	border: none;
-	/* padding: 2px 5px; */
-	/* border-radius: 5px; */
+	padding: 0;
+	border-radius: 5px;
 	cursor: pointer;
 	font-size: 16px;
 	position: relative;
-	margin-right: 5%;
-	/* top: -78px; */
+	justify-content: center;
 	text-decoration: none;
-	image-rendering: pixelated;
-	width: 20px;
-	height: 20px;
+}
+.backButton img {
+	width: 7vw;
+	height: 7vh;
 }
 .backButton:hover {
 	background-color: rgb(124, 74, 124);

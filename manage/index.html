@@ -3,7 +3,15 @@
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title>Manage</title>
+		<title>QuizTime</title>
+		<link rel="stylesheet" href="/manage/styles.css" />
+
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400..700&display=swap"
+			rel="stylesheet"
+		/>
 
 		<link rel="preconnect" href="https://fonts.googleapis.com" />
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -11,22 +19,22 @@
 			href="https://fonts.googleapis.com/css2?family=Stalinist+One&display=swap"
 			rel="stylesheet"
 		/>
-
-		<link rel="stylesheet" href="styles.css" />
 	</head>
 	<body>
 		<header id="header">
-			<img src="/logo-icon.png" alt="Logo" style="position: absolute; left: 2%; top: 2%" />
 			Manage
+			<a href="../"><button class="backButton">Back</button></a>
 		</header>
-		<a href="/"><div id="Quizzes">Quizzes</div></a>
-		<a href="/results"><div id="Quizzes">Results</div></a>
-		<a href="/help"><div id="Quizzes">Create</div></a>
+		<div id="toolbar">
+			<a href="/" class="toolbar">Quizzes</a>
+			<a href="/results" class="toolbar">Results</a>
+			<a href="/help" class="toolbar">Help</a>
+		</div>
 		<div id="container"></div>
 		<footer id="footer">
 			Bohdanchik piska<br />main designer: Bohdanchik<br />
 			and other motherfuckers: Oleg, Vlad, Dima
 		</footer>
-		<script src="script.js"></script>
+		<script src="/manage/script.js"></script>
 	</body>
 </html>

@@ -1,10 +1,8 @@
 const addQuestion = document.getElementById("addquestion");
 const container = document.getElementById("container");
 //const saveQuizButton = document.getElementById("saveQuizButton");
-
 const quizzesContainer = document.getElementById("quizzesContainer");
 // const deleteQuestion = document.querySelectorAll(".deletequestion");
-//
 // const questionNum = quiz.querySelector('.questionNum');
 
 let counter = 2;
@@ -81,43 +79,52 @@ container.addEventListener("click", function (el) {
 });
 
 // приклад роботи localstorage
-
 //Блок коду для збереження тесту в localStorage
-
 const saveQuizButton = document.getElementById("saveQuizButton");
 const input = document.querySelector(".quizTitle");
 const questionName = document.querySelector(".questionText");
 // перевірка чи є такий ключ в локал сторедж, якщо нема ми його створюємо
+
 // створив локал для сторінки мейн
-let manageQuiz = JSON.parse(localStorage.getItem("storage"));
-if (!manageQuiz) {
-	const storage = {
-		title: "Тест з англійської мови (A1)",
-		description: "Перевір свої базові знання англійських слів і граматики.",
-		questions: [
+let storage = JSON.parse(localStorage.getItem("storage"));
+if (!storage) {
+	storage = {
+		quizes: [
 			{
-				text: "Яке з наведених слів означає 'кіт'?",
-				options: [
-					{ text: "dog", id: 1, isCorrect: false },
-					{ text: "cat", id: 2, isCorrect: true },
-					{ text: "bird", id: 3, isCorrect: false },
+				title: "Тест з англійської мови (A1)",
+				description: "Перевір свої базові знання англійських слів і граматики.",
+				questions: [
+					{
+						text: "Яке з наведених слів означає 'кіт'?",
+						options: [
+							{ text: "dog", id: 1, isCorrect: false },
+							{ text: "cat", id: 2, isCorrect: true },
+							{ text: "bird", id: 3, isCorrect: false },
+						],
+					},
+					{
+						text: "Яке з наведених слів означає 'кіт'?",
+						options: [
+							{ text: "dog", id: 1, isCorrect: false },
+							{ text: "cat", id: 2, isCorrect: true },
+							{ text: "bird", id: 3, isCorrect: false },
+						],
+					},
 				],
 			},
+		],
+		results: [
 			{
-				text: "Яке з наведених слів означає 'кіт'?",
-				options: [
-					{ text: "dog", id: 1, isCorrect: false },
-					{ text: "cat", id: 2, isCorrect: true },
-					{ text: "bird", id: 3, isCorrect: false },
-				],
+				timestamp: "2024-06-10T12:00:00Z",
+				quizName: "Тест з англійської мови (A1)",
+				summary: 90,
+				answers: [[], [], []],
 			},
 		],
 	};
 }
 
-// створення локал для сторінкии з питаннями
-
-const questionsStorage = {
+let question = {
 	title: "Тест з англійської мови (A1)",
 	description: "Перевір свої базові знання англійських слів і граматики.",
 	questions: [
@@ -142,18 +149,67 @@ const questionsStorage = {
 
 saveQuizButton.addEventListener("click", () => {
 	const isCorrect = document.querySelector(".isCorrect").checked;
-	alert(isCorrect);
+	// alert(isCorrect);
 
 	// пуш значень для main storage
 
-	storage.title.push(input.value);
-	storage.questions.push(questionName.value);
+	// question.title = input.value;
+	// question.description = input.value;
 
-	//додаю в локалсторедж
-	localStorage.setItem("storage", JSON.stringify(manageQuiz));
-	const output = JSON.parse(localStorage.getItem("storage"));
+	// let quest = document.querySelectorAll("#questionText");
+	// quest.forEach((val, index) => {
+	// 	// question.questions = {
+	// 	// 	text: questionName.value,
+	// 	// };
+	// 	question.questions = {
+	// 		options: [
+	// 			{
+	// 				text: val.value,
+	// 				id: index + 1,
+	// 				isCorrect: isCorrect,
+	// 			},
+	// 		],
+	// 	};
+	// });
+	// console.log(JSON.stringify(question));
 
-	console.log(output);
+	let quest = document.querySelectorAll("#questionText");
+	quest.forEach((val, index) => {
+		// question.questions = {
+		// 	text: questionName.value,
+		// };
+		let newval = {
+			text: val.value,
+			id: index + 1,
+			isCorrect: isCorrect,
+		};
+		question.questions.options = [].push(newval);
+	});
+	console.log(JSON.stringify(question));
+
+	// console.log(quest.questions);
+
+	// quest.forEach((q, index) => {
+	// 	question.questions[index] = { text: q.value, options: [] };
+	// });
+
+	// for (let i = 1; i < counter; i++) {
+	// 		let questionNum = document.querySelectorAll(".questionNum");
+
+	// 		questionNum.forEach((num, index) => {
+	// 			num.textContent = `Запитання № ${index + 1}`;
+	// 		});
+	// 	}
+	// }
+	// question.questions[0].text.push(description.value);
+
+	// console.log(question);
+
+	// //додаю в локалсторедж
+	// localStorage.setItem("storage", JSON.stringify(storage));
+	// const output = JSON.parse(localStorage.getItem("storage"));
+
+	// console.log(output);
 
 	// пуш значеня в quiz storage
 });
