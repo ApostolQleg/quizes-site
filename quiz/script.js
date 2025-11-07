@@ -83,9 +83,6 @@ selected.questions.forEach((question) => {
 
 	container.appendChild(questionDiv);
 	question.options.forEach((option) => {
-		const optionsLable = document.createElement("lable");
-		optionsLable.className = "optionsLable";
-		optionsLable.innerHTML = option.text;
-		questionDiv.appendChild(optionsLable);
+		
 	});
 });
