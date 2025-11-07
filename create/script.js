@@ -86,43 +86,43 @@ const questionName = document.querySelector(".questionText");
 // перевірка чи є такий ключ в локал сторедж, якщо нема ми його створюємо
 
 // створив локал для сторінки мейн
-let storage = JSON.parse(localStorage.getItem("storage"));
-if (!storage) {
-	storage = {
-		quizes: [
-			{
-				title: "Тест з англійської мови (A1)",
-				description: "Перевір свої базові знання англійських слів і граматики.",
-				questions: [
-					{
-						text: "Яке з наведених слів означає 'кіт'?",
-						options: [
-							{ text: "dog", id: 1, isCorrect: false },
-							{ text: "cat", id: 2, isCorrect: true },
-							{ text: "bird", id: 3, isCorrect: false },
-						],
-					},
-					{
-						text: "Яке з наведених слів означає 'кіт'?",
-						options: [
-							{ text: "dog", id: 1, isCorrect: false },
-							{ text: "cat", id: 2, isCorrect: true },
-							{ text: "bird", id: 3, isCorrect: false },
-						],
-					},
-				],
-			},
-		],
-		results: [
-			{
-				timestamp: "2024-06-10T12:00:00Z",
-				quizName: "Тест з англійської мови (A1)",
-				summary: 90,
-				answers: [[], [], []],
-			},
-		],
-	};
-}
+// let storage = JSON.parse(localStorage.getItem("storage"));
+// if (!storage) {
+// 	storage = {
+// 		quizzes: [
+// 			{
+// 				title: "Тест з англійської мови (A1)",
+// 				description: "Перевір свої базові знання англійських слів і граматики.",
+// 				questions: [
+// 					{
+// 						text: "Яке з наведених слів означає 'кіт'?",
+// 						options: [
+// 							{ text: "dog", id: 1, isCorrect: false },
+// 							{ text: "cat", id: 2, isCorrect: true },
+// 							{ text: "bird", id: 3, isCorrect: false },
+// 						],
+// 					},
+// 					{
+// 						text: "Яке з наведених слів означає 'кіт'?",
+// 						options: [
+// 							{ text: "dog", id: 1, isCorrect: false },
+// 							{ text: "cat", id: 2, isCorrect: true },
+// 							{ text: "bird", id: 3, isCorrect: false },
+// 						],
+// 					},
+// 				],
+// 			},
+// 		],
+// 		results: [
+// 			{
+// 				timestamp: "2024-06-10T12:00:00Z",
+// 				quizTitle: "Тест з англійської мови (A1)",
+// 				summary: 2,
+// 				answers: [[], []],
+// 			},
+// 		],
+// 	};
+// }
 
 let question = {
 	title: "Тест з англійської мови (A1)",
@@ -139,25 +139,79 @@ let question = {
 		{
 			text: "Яке з наведених слів означає 'кіт'?",
 			options: [
-				{ text: "dog", id: 1, isCorrect: false },
-				{ text: "cat", id: 2, isCorrect: true },
-				{ text: "bird", id: 3, isCorrect: false },
+				{ text: "ckok", id: 1, isCorrect: false },
+				{ text: "lok", id: 2, isCorrect: true },
+				{ text: "dick", id: 3, isCorrect: false },
 			],
 		},
 	],
 };
 
+// let storageExample = {
+// 	quizzes: [
+// 		{
+// 			title: "Тест з англійської мови (A1)",
+// 			description: "Перевір свої базові знання англійських слів і граматики.",
+// 			questions: [
+// 				{
+// 					text: "Яке з наведених слів означає 'кіт'?",
+// 					options: [
+// 						{ text: "dog", id: 1, isCorrect: false },
+// 						{ text: "cat", id: 2, isCorrect: true },
+// 						{ text: "bird", id: 3, isCorrect: false },
+// 					],
+// 				},
+// 				{
+// 					text: "Яке з наведених слів означає 'кіт'?",
+// 					options: [
+// 						{ text: "dog", id: 1, isCorrect: false },
+// 						{ text: "cat", id: 2, isCorrect: true },
+// 						{ text: "bird", id: 3, isCorrect: false },
+// 					],
+// 				},
+// 			],
+// 		},
+// 	],
+// 	results: [
+// 		{
+// 			timestamp: "2024-06-10T12:00:00Z",
+// 			quizTitle: "Тест з англійської мови (A1)",
+// 			summary: 2,
+// 			answers: [[], []],
+// 		},
+// 	],
+// };
+
+// alert(JSON.stringify(question.questions[1].options.push({ text: "new", id: 4, isCorrect: false })))
+// alert(JSON.stringify(question.questions[1].options))
+// alert(question.questions[1].options.length)
+
 saveQuizButton.addEventListener("click", () => {
 	const isCorrect = document.querySelector(".isCorrect").checked;
+	const questionNumber = question.questions.length;
+
 	// alert(isCorrect);
 
 	// пуш значень для main storage
+	// quiz.title
+	question.title = input.value;
+	question.description = input.value;
+	// пуш значень для questions
+	const questionText = document.querySelectorAll(".questionText");
+	questionText.forEach((val1, index1) => {
+		question.questions[index1] = { text: val1.value, options: [] };
 
-	// question.title = input.value;
-	// question.description = input.value;
-
-	// let quest = document.querySelectorAll("#questionText");
-	// quest.forEach((val, index) => {
+		// options: [];
+		let quest = document.querySelectorAll("#questionText");
+		quest.forEach((val, index) => {
+			question.questions[index1].options.push({
+				text: val.value,
+				id: index + 1,
+				isCorrect: isCorrect,
+			});
+		});
+	});
+	alert(JSON.stringify(question));
 	// 	// question.questions = {
 	// 	// 	text: questionName.value,
 	// 	// };
@@ -171,21 +225,22 @@ saveQuizButton.addEventListener("click", () => {
 	// 		],
 	// 	};
 	// });
-	// console.log(JSON.stringify(question));
 
-	let quest = document.querySelectorAll("#questionText");
-	quest.forEach((val, index) => {
-		// question.questions = {
-		// 	text: questionName.value,
-		// };
-		let newval = {
-			text: val.value,
-			id: index + 1,
-			isCorrect: isCorrect,
-		};
-		question.questions.options = [].push(newval);
-	});
 	console.log(JSON.stringify(question));
+
+	// let quest = document.querySelectorAll("#questionText");
+	// quest.forEach((val, index) => {
+	// 	// question.questions = {
+	// 	// 	text: questionName.value,
+	// 	// };
+	// 	let newval = {
+	// 		text: val.value,
+	// 		id: index + 1,
+	// 		isCorrect: isCorrect,
+	// 	};
+	// 	question.questions.options = [].push(newval);
+	// });
+	// console.log(JSON.stringify(question));
 
 	// console.log(quest.questions);
 

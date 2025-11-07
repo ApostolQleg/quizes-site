@@ -200,3 +200,9 @@ footer {
 .addvariant:hover {
 	background-color: rgb(124, 74, 124);
 }
+
+@media screen and (max-width: 768px) {
+	.header h1 {
+		font-size: 15px;
+		content-align: right;
+}

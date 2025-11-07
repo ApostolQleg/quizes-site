@@ -9,7 +9,7 @@
 	background-color: rgb(233, 14, 178);
 	color: rgb(35, 15, 35);
 	border: none;
-	border-radius: 5%;
+	border-radius: 20px;
 	aspect-ratio: 1;
 	image-rendering: pixelated;
 	height: 20vw;
@@ -19,5 +19,20 @@
 	justify-content: center;
 	align-items: center;
 	font-family: "Pixelify Sans", sans-serif;
-	font-size: clamp(15px, 2vw, 30px);
+	font-size: 25px;
+	transition: all 300ms ease;
+}
+#start-quiz-button {
+	height: 50px;
+	width: 100px;
+	background-color: rgb(146, 6, 146);
+	border: none;
+	border-radius: 20px;
+	position: absolute;
+	bottom: 20px;
+}
+@media screen and (max-width: 768px) {
+	.quiz {
+		font-size: 15px;
+	}
 }

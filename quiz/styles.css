@@ -15,9 +15,22 @@
 .question-block {
 	background-color: white;
 	width: 90%;
+	text-align: center;
 }
 .submit {
-	background-color: cyan;
+	background-color: rgb(100, 50, 100);
+	color: white;
+	border: none;
+	padding: 10px 20px;
+	border-radius: 5px;
+	cursor: pointer;
+	font-size: 16px;
+	position: relative;
+	margin-right: 5%;
+	/* top: -78px; */
+	text-decoration: none;
+	position: absolute;
+	bottom: 130px; /* паміняй */
 }
 .quiz-name {
 	background: white;
@@ -33,5 +46,11 @@
 	margin-bottom: 10px;
 	font-family: "Stalinist One", sans-serif;
 }
-
+.questionDiv {
+	background: white;
+	margin: 10px;
+}
+.optionsLable {
+	background: white;
+}
 /* Я додав рандомні стилі, просто щоб бачити як це виглядає */
