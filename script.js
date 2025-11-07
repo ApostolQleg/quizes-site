@@ -44,19 +44,16 @@ quizzes.forEach((quiz) => {
 			button.style.height = "80%";
 			button.style.top = "10%";
 			button.style.left = "10%";
-			button.style.border = "10px solid rgba(255, 255, 255, 0.1)";
+			button.style.border = "10px solid rgba(104, 25, 84, 1)";
 			// add button to start quiz
 			const startQuizButton = document.createElement("button");
 			startQuizButton.id = "start-quiz-button";
 			startQuizButton.innerText = "Start Quiz";
+
 			startQuizButton.onclick = () => {
-				// Start the quiz
+				window.location.href = "/quiz";
 			};
 			button.appendChild(startQuizButton);
-			// Add event listener to start the quiz
-			startQuizButton.addEventListener("click", () => {
-				window.location.href = "/quiz";
-			});
 		}
 		ifPressed = !ifPressed;
 	});

@@ -1,9 +1,10 @@
 @import "/templates/styles.css";
 #container {
 	display: grid;
-	grid-template-columns: repeat(auto-fill, minmax(20vw, 21vw));
-	grid-template-rows: repeat(auto-fill, minmax(20vw, 22vw));
-	gap: 2%;
+	grid-template-columns: repeat(auto-fill, minmax(20vw, 20vw));
+	grid-template-rows: repeat(auto-fill, minmax(20vw, 20vw));
+	gap: 2vw;
+	justify-content: center;
 }
 .quiz {
 	background-color: rgb(233, 14, 178);
@@ -13,7 +14,7 @@
 	aspect-ratio: 1;
 	image-rendering: pixelated;
 	height: 20vw;
-	cursor: pointer;
+	cursor: var(--pointer-cursor);
 	display: flex;
 	flex-direction: column;
 	justify-content: center;

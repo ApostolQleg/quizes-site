@@ -15,7 +15,7 @@
 	image-rendering: pixelated;
 	/* height: 20vw; */
 	width: 20vw;
-	cursor: pointer;
+	cursor: var(--pointer-cursor);
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
@@ -29,11 +29,13 @@
 #start-quiz-button {
 	height: 50px;
 	width: 100px;
-	background-color: rgb(146, 6, 146);
+	background-color: rgba(104, 25, 84, 1);
 	border: none;
 	border-radius: 20px;
 	position: absolute;
 	bottom: 20px;
+	cursor: var(--pointer-cursor);
+	box-shadow: 0 0 10px rgb(245, 42, 245);
 }
 @media screen and (max-width: 768px) {
 	.quiz {

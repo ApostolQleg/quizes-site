@@ -7,7 +7,7 @@ header {
 	align-items: center;
 	position: relative;
 	max-height: 100px;
-	font-size: 25px;
+	/* font-size: 25px; */
 }
 header h1 {
 	text-align: center;
@@ -49,15 +49,14 @@ footer {
 	border: none;
 	padding: 0;
 	border-radius: 5px;
-	cursor: pointer;
-	font-size: 16px;
+	cursor: var(--pointer-cursor);
 	position: relative;
 	justify-content: center;
 	text-decoration: none;
 }
 .backButton img {
-	width: 7vw;
-	height: 7vh;
+	width: 10vw;
+	height: 5vh;
 }
 .backButton:hover {
 	background-color: rgb(124, 74, 124);
@@ -68,7 +67,7 @@ footer {
 	border: none;
 	padding: 10px 20px;
 	border-radius: 5px;
-	cursor: pointer;
+	cursor: var(--pointer-cursor);
 	font-size: 16px;
 	display: block;
 	margin-top: auto;
@@ -108,7 +107,7 @@ footer {
 	border: none;
 	padding: 10px 20px;
 	border-radius: 5px;
-	cursor: pointer;
+	cursor: var(--pointer-cursor);
 	font-size: 16px;
 	width: 10vh;
 	height: 50px;
@@ -165,7 +164,7 @@ footer {
 	border: none;
 	padding: 5px 10px;
 	border-radius: 5px;
-	cursor: pointer;
+	cursor: var(--pointer-cursor);
 	font-size: 16px;
 	width: 5vh;
 	height: 30px;
