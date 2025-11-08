@@ -7,7 +7,7 @@ header {
 	align-items: center;
 	position: relative;
 	max-height: 100px;
-	/* font-size: 25px; */
+	font-size: 25px;
 }
 header h1 {
 	text-align: center;
@@ -18,7 +18,7 @@ header h1 {
 }
 footer {
 	background-color: rgb(140, 60, 140);
-	color: rgb(70, 30, 70);
+	color: rgb(212, 25, 212));
 	text-align: center;
 	padding: 10px 0;
 	font-size: 24px;
@@ -44,33 +44,32 @@ footer {
 	/* margin: 0; */
 	margin-right: 5%;
 	position: absolute;
-	background-color: rgb(100, 50, 100);
+	background-color: rgb(205, 138, 205);
 	color: white;
 	border: none;
 	padding: 0;
 	border-radius: 5px;
-	cursor: var(--pointer-cursor);
 	position: relative;
 	justify-content: center;
 	text-decoration: none;
 }
 .backButton img {
-	width: 10vw;
-	height: 5vh;
+	width: 100px;
+	height: 50px;
 }
 .backButton:hover {
 	background-color: rgb(124, 74, 124);
 }
 .saveQuizButton {
-	background-color: rgb(100, 50, 100);
+	background-color: rgb(255, 0, 98);
 	color: white;
 	border: none;
 	padding: 10px 20px;
 	border-radius: 5px;
-	cursor: var(--pointer-cursor);
 	font-size: 16px;
 	display: block;
 	margin-top: auto;
+	font-family:  'pixelify sans', sans-serif;
 	bottom: 5%; /* відступ від низу вікна */
 	right: 4%; /* по центру горизонтально */
 }
@@ -91,9 +90,9 @@ footer {
 	outline: none;
 	caret-color: white;
 	color: white;
-	cursor: text;
 	font-size: 22px;
 	margin-top: 20px;
+	font-family: "Pixelify Sans", sans-serif;
 	/* width: fit-content; */
 	display: inline-block; /* 👈 робить ширину під контент */
 	width: fit-content; /* 👈 підтримує сучасний підхід */
@@ -102,12 +101,11 @@ footer {
 	color: rgba(255, 255, 255, 0.7);
 }
 .addquestion {
-	background-color: rgb(100, 50, 100);
+	background-color: rgb(146, 6, 146);
 	color: white;
 	border: none;
 	padding: 10px 20px;
 	border-radius: 5px;
-	cursor: var(--pointer-cursor);
 	font-size: 16px;
 	width: 10vh;
 	height: 50px;
@@ -143,11 +141,11 @@ footer {
 	outline: none;
 	caret-color: rgb(22, 20, 20);
 	color: rgb(0, 0, 0);
-	cursor: text;
 	font-size: 18px;
 	margin-bottom: 10px;
 	display: block;
 	inline-size: fit-content;
+	font-family: "Pixelify Sans", sans-serif;
 }
 .questionText::placeholder {
 	color: rgb(45, 45, 45); /* змінює колір тексту плейсхолдера */
@@ -157,14 +155,14 @@ footer {
 .variant {
 	font-size: 18px;
 	margin: 10px 0 5px 0;
+	font-family: 'Pixelify Sans', sans-serif;
 }
 .addvariant {
-	background-color: rgb(100, 50, 100);
+	background-color: rgb(146, 6, 146);
 	color: white;
 	border: none;
 	padding: 5px 10px;
 	border-radius: 5px;
-	cursor: var(--pointer-cursor);
 	font-size: 16px;
 	width: 5vh;
 	height: 30px;
@@ -178,4 +176,8 @@ footer {
 	.header h1 {
 		font-size: 15px;
 		content-align: right;
-}
+	}
+	.backButton img {
+		width: 70px;
+		height: 35px;
+	}

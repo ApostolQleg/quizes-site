@@ -15,7 +15,6 @@
 	image-rendering: pixelated;
 	/* height: 20vw; */
 	width: 20vw;
-	cursor: var(--pointer-cursor);
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
@@ -26,15 +25,31 @@
 	max-height: 400px;
 	/* margin: 1vw 2vw; */
 }
+.quiz.add {
+	background-color: rgb(255, 0, 98)
+	background: linear-gradient(
+		to right,
+		rgb(85, 205, 252),
+		rgb(179, 157, 233),
+		rgb(247, 168, 184),
+		rgb(246, 216, 221),
+		rgb(255, 255, 255) 45%,
+		rgb(255, 255, 255),
+		rgb(255, 255, 255) 55%,
+		rgb(246, 216, 221),
+		rgb(247, 168, 184),
+		rgb(179, 157, 233),
+		rgb(85, 205, 252)
+	);
+}
 #start-quiz-button {
 	height: 50px;
 	width: 100px;
-	background-color: rgba(104, 25, 84, 1);
+	background-color: rgba(255, 0, 98, 1);
 	border: none;
 	border-radius: 20px;
 	position: absolute;
 	bottom: 20px;
-	cursor: var(--pointer-cursor);
 	box-shadow: 0 0 10px rgb(245, 42, 245);
 }
 @media screen and (max-width: 768px) {

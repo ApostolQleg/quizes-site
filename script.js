@@ -17,13 +17,15 @@ quizzes.forEach((quiz) => {
 		// Load the selected quiz
 		storage.selected = quiz;
 		localStorage.setItem("storage", JSON.stringify(storage));
+
+		// create modal to start quiz
 		//window.location.href = "/quiz";
 		if (ifPressed) {
 			// ensure the container is a positioning context
 			if (!container.style.position) container.style.position = "relative";
 
 			// reset position
-			button.style.position = "static";
+			button.style.position = "stati";
 
 			// animate the button back to original size
 			button.style.width = "20vw";
