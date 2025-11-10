@@ -118,14 +118,14 @@ footer {
 	display: inline-block;
 	width: 40%;  
 }
-.input-error {
+.input-error, .optionText.input-error, .questionText.input-error {
 	background-color: rgba(255, 0, 0, 0.2);
 	border: 2px solid red;
 }
-.questionText.input-error {
+/* .questionText.input-error {
 	background-color: rgba(255, 0, 0, 0.2);
 	border: 2px solid red;
-}
+} */
 .addquestion {
 	background-color: rgb(146, 6, 146);
 	color: white;
