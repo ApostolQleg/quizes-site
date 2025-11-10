@@ -4,16 +4,3 @@ body {
 	background-image: url(https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExOWFiNHk5b3drdGZ2dzQyejYwbzJoMjQweWc1eDE1bDhvcWU4NWY5ZiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/o0vwzuFwCGAFO/giphy.gif);
 	background-size: cover;
 }
-
-.backButton {
-	background-color: rgb(100, 50, 100);
-	color: white;
-	border: none;
-	padding: 10px 20px;
-	border-radius: 5px;
-	font-size: 16px;
-	position: relative;
-	margin-right: 5%;
-	/* top: -78px; */
-	text-decoration: none;
-}

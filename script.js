@@ -2,7 +2,7 @@ const container = document.getElementById("container");
 const create = document.getElementById("create");
 
 // Load and create quiz buttons from localStorage
-const storage = JSON.parse(localStorage.getItem("storage")) || {};
+storage = JSON.parse(localStorage.getItem("storage")) || {};
 const quizzes = storage?.quizzes || [];
 
 quizzes.forEach((quiz) => {
@@ -16,7 +16,7 @@ quizzes.forEach((quiz) => {
 		// Load the selected quiz
 		storage.selected = quiz;
 		localStorage.setItem("storage", JSON.stringify(storage));
-		
+
 		// ensure the container is a positioning context
 		if (!container.style.position) container.style.position = "relative";
 
@@ -29,6 +29,7 @@ quizzes.forEach((quiz) => {
 		const description = document.createElement("button");
 		description.className = "quiz";
 		description.id = "description";
+		description.style.top = button.offsetTop + "px";
 		description.innerHTML = quiz.title + "<br>" + quiz.description + "<br>";
 		document.body.appendChild(description);
 		button.remove();
@@ -36,10 +37,31 @@ quizzes.forEach((quiz) => {
 		// add start quiz button
 		const startQuizButton = document.createElement("button");
 		startQuizButton.id = "start-quiz-button";
+		startQuizButton.className = "description-button";
 		startQuizButton.innerText = "Start Quiz";
 		description.appendChild(startQuizButton);
 		startQuizButton.addEventListener("click", () => {
 			window.location.href = "/quiz";
+		});
+
+		// add manage quiz button
+		const manageQuizButton = document.createElement("button");
+		manageQuizButton.id = "manage-quiz-button";
+		manageQuizButton.className = "description-button";
+		manageQuizButton.innerText = "Manage";
+		description.appendChild(manageQuizButton);
+		manageQuizButton.addEventListener("click", () => {
+			window.location.href = "/manage";
+		});
+
+		// add delete quiz button
+		const deleteQuizButton = document.createElement("button");
+		deleteQuizButton.id = "delete-quiz-button";
+		deleteQuizButton.className = "description-button";
+		deleteQuizButton.innerText = "Delete";
+		description.appendChild(deleteQuizButton);
+		deleteQuizButton.addEventListener("click", () => {
+			// somehow delete quiz from localstorage
 		});
 
 		// if description clicked

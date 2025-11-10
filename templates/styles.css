@@ -26,14 +26,16 @@ header {
 	padding: 2% 0;
 	height: 10%;
 	min-height: 25px;
-	border-bottom-left-radius: 10%;
-	border-bottom-right-radius: 10%;
+	border-radius: 0 0 20% 20%;
 	font-size: 40px;
 	top: 0;
 	width: 100%;
-	/* margin-bottom: 2%; */
 	font-family: "Stalinist One", sans-serif;
 	image-rendering: pixelated;
+}
+header h1 {
+	font-size: 40px;
+	margin: auto;
 }
 
 header img {
@@ -50,8 +52,7 @@ footer {
 	text-align: center;
 	padding: 2% 0;
 	font-size: clamp(5px, 3vw, 10px);
-	border-top-left-radius: 10%;
-	border-top-right-radius: 10%;
+	border-radius: 20% 20% 0 0;
 	height: 5%;
 	bottom: 0;
 	width: 100%;
@@ -62,11 +63,11 @@ footer {
 .backButton {
 	margin-right: 5%;
 	position: absolute;
+	right: 0;
 	color: white;
 	border: none;
 	padding: 0;
 	border-radius: 5px;
-	position: relative;
 	justify-content: center;
 	text-decoration: none;
 }
@@ -97,7 +98,6 @@ footer {
 	padding: 2%;
 	border-radius: 20px;
 	box-shadow: 0 0 10px rgba(114, 0, 104, 0.692);
-	/* justify-content: center; */
 }
 
 #toolbar {
@@ -115,6 +115,7 @@ footer {
 	text-decoration: none;
 }
 
+/* for piskas */
 button,
 a,
 input[type="checkbox"] {
@@ -132,6 +133,7 @@ textarea {
 	}
 }
 
+/* for cumshot effects */
 canvas.fx {
 	position: fixed;
 	width: 100%;

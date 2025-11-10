@@ -1,18 +1,5 @@
 @import "/templates/styles.css";
 
-.backButton {
-	background-color: rgb(100, 50, 100);
-	color: white;
-	border: none;
-	padding: 10px 20px;
-	border-radius: 5px;
-	font-size: 16px;
-	position: relative;
-	margin-right: 5%;
-	/* top: -78px; */
-	text-decoration: none;
-}
-
 .question-block {
 	background-color: white;
 	width: 90%;
@@ -26,10 +13,7 @@
 	padding: 10px 20px;
 	border-radius: 5px;
 	font-size: 16px;
-	position: relative;
 	margin-right: 5%;
-	/* top: -78px; */
-	text-decoration: none;
 	position: absolute;
 	bottom: 130px; /* паміняй */
 }

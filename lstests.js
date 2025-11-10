@@ -1,5 +1,5 @@
 // Test quizzes
-const storage = {
+let storage = {
 	quizzes: [
 		// --- ТЕСТ 1: Англійська мова (A1) ---
 		{
@@ -579,7 +579,7 @@ const storage = {
 	results: [
 		{
 			timestamp: "2024-06-10T12:00:00Z",
-			quizTitle: "Тест з англійської мови (A1)",
+			title: "Тест з англійської мови (A1)",
 			summary: 2,
 			answers: [[], []],
 		},

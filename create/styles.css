@@ -1,61 +1,12 @@
 @import "/templates/styles.css";
 
 header {
-	display: flex;
-	justify-content: space-between;
 	align-items: center;
-	position: relative;
-	max-height: 100px;
-	font-size: 25px;
-}
-
-header h1 {
-	text-align: center;
-	margin: auto;
-}
-
-footer {
-	background-color: rgb(140, 60, 140);
-	color: rgb(212, 25, 212);
-	text-align: center;
-	padding: 10px 0;
-	font-size: 24px;
-	border-radius: 20% 20% 0 0;
-	width: 100%;
 }
 
 .container {
-	margin: 20px;
-	min-height: 500px;
-	background-color: rgb(35, 15, 35);
-	padding: 20px;
-	border-radius: 8px;
-	box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-	/* display: flex; */
-	flex-direction: column;
-	/* flex: 1; */
 	display: grid;
 	gap: 20px;
-	/* length: 100%; */
-}
-
-.backButton {
-	
-	margin-right: 5%;
-	position: absolute;
-	
-	color: white;
-	border: none;
-	padding: 0;
-	border-radius: 5px;
-	position: relative;
-	justify-content: center;
-	text-decoration: none;
-}
-
-.backButton img {
-	width: 100px;
-	height: 50px;
 }
 
 .saveQuizButton {
@@ -65,29 +16,18 @@ footer {
 	padding: 10px 20px;
 	border-radius: 5px;
 	font-size: 16px;
-	display: block;
 	margin-top: auto;
-	font-family:  'pixelify sans', sans-serif;
-	bottom: 5%; /* відступ від низу вікна */
-	right: 4%; /* по центру горизонтально */
+	font-family: "pixelify sans", sans-serif;
 }
-
 .saveQuizButton:hover {
 	background-color: rgb(124, 74, 124);
 }
-
+/* докодити  */
 .saveQuizButton:disabled {
 	background-color: grey;
 	cursor: not-allowed;
-	color:rgb(190, 190, 190);
+	color: rgb(190, 190, 190);
 }
-
-/* .quizName {
-	display: flex;
-	justify-content: space-between;
-	align-items: center;
-	margin-bottom: 0px;
-} */
 
 .quizTitle {
 	border: none;
@@ -101,7 +41,7 @@ footer {
 	font-family: "Pixelify Sans", sans-serif;
 	/* width: fit-content; */
 	display: inline-block;
-	width: fit-content; 
+	width: fit-content;
 }
 
 .quizTitle::placeholder {
@@ -120,10 +60,12 @@ footer {
 	font-family: "Pixelify Sans", sans-serif;
 	width: fit-content;
 	display: inline-block;
-	width: 40%;  
+	width: 40%;
 }
 
-.input-error, .optionText.input-error, .questionText.input-error {
+.input-error,
+.optionText.input-error,
+.questionText.input-error {
 	background-color: rgba(255, 0, 0, 0.2);
 	border: 2px solid red;
 }
@@ -146,7 +88,6 @@ footer {
 	border-radius: 8px;
 	position: relative;
 	display: grid;
-	flex-direction: column;
 	gap: 3px;
 	max-width: 800px;
 }
@@ -161,10 +102,10 @@ footer {
 	margin-top: 12px;
 	right: 15px;
 	position: absolute;
+	font-size: 20px;
 }
 
 .questionText {
-	width: 100%;
 	border: none;
 	background-color: transparent;
 	border-bottom: 1px solid white;
@@ -173,7 +114,6 @@ footer {
 	color: rgb(0, 0, 0);
 	font-size: 20px;
 	margin-bottom: 10px;
-	display: block;
 	inline-size: fit-content;
 	font-family: "Pixelify Sans", sans-serif;
 }
@@ -186,7 +126,6 @@ footer {
 .variant {
 	font-size: 18px;
 	margin: 10px 0 5px 0;
-	font-family: 'Pixelify Sans', sans-serif;
 }
 
 .addvariant {
@@ -198,7 +137,6 @@ footer {
 	font-size: 16px;
 	width: 5vh;
 	height: 30px;
-	margin-left: 20px;
 }
 
 .addvariant:hover {
@@ -208,7 +146,7 @@ footer {
 	margin: 0;
 	font-size: 20px;
 	color: white;
-	font-family: 'Pixelify Sans', sans-serif;
+	font-family: "Pixelify Sans", sans-serif;
 }
 
 .quizName .reset {
@@ -218,23 +156,21 @@ footer {
 	padding: 5px 10px;
 	border-radius: 5px;
 	font-size: 16px;
-	font-family: 'Pixelify Sans', sans-serif;
+	font-family: "Pixelify Sans", sans-serif;
 }
 
 .quizName .reset:hover {
 	background-color: rgb(124, 74, 124);
-}	
+}
 
-.quizName{
-	    display: flex;
+.quizName {
+	display: flex;
 
+	/* flex-direction: row;      */
+	align-items: center;
 
-
-		/* flex-direction: row;      */
-        align-items: center;     
-  		
-		gap: 10px;
-		margin-top: 20px;
+	gap: 10px;
+	margin-top: 20px;
 }
 
 label {
@@ -243,7 +179,8 @@ label {
 	align-items: center;
 }
 
-#deletevariant {
+#deletevariant,
+#deletequestion {
 	background-color: rgb(255, 0, 98);
 	color: white;
 	border: none;
@@ -269,10 +206,10 @@ input[type="checkbox"] {
 
 @media screen and (max-width: 768px) {
 	.header h1 {
-		font-size: 15px;
+		font-size: 25px;
 		content-align: right;
 	}
-	
+
 	.backButton img {
 		width: 70px;
 		height: 35px;

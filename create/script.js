@@ -1,9 +1,9 @@
 const addQuestion = document.getElementById("addquestion");
 const container = document.getElementById("container");
 const quizzesContainer = document.getElementById("quizzesContainer");
-
 let counter = 2;
 
+// Add new question on button click
 addQuestion.addEventListener("click", () => {
 	const question = document.createElement("div");
 	saveQuizButton.before(question);
@@ -87,7 +87,6 @@ container.addEventListener("click", function (el) {
 
 // приклад роботи localstorage
 //Блок коду для збереження тесту в localStorage
-
 const inputValue = document.querySelectorAll("input:not([type=checkbox])");
 const saveQuizButton = document.getElementById("saveQuizButton");
 const input = document.querySelector(".quizTitle");
@@ -95,53 +94,9 @@ const reset = document.querySelector(".reset");
 const description = document.querySelector(".quizDescriptionInput");
 const charCount = document.querySelector(".charCount");
 
-//робочий код, який треба оптимізувати
-// saveQuizButton.disabled = true;
-
-// inputValue.forEach((input) => {
-//      //пробник непоганий
-//     input.addEventListener("input", () => {
-//         const allFilled = Array.from(inputValue).every(inp => inp.value.trim() !== '');
-//         // if (inputValue.forEach.value !== '') {
-//         //     saveQuizButton.disabled = false;
-//         //     // alert("Заповніть всі поля");
-//         // };
-//         if (input.value.trim() === '') {
-//             input.classList.add("input-error");
-//         } else {
-//             input.classList.remove("input-error");
-//         }
-//         // saveQuizButton.addEventListener("click", () => {
-//         //     if (input.value === '' || !allFilled) {
-//         //         alert("Заповніть всі поля");
-//         //         input.style.backgroundColor = "#ffcccc";
-//         //     }
-//         // });
-
-//         // saveQuizButton.disabled = !allFilled;
-//     //     input.style.width = "auto";
-//     //     input.style.width = (input.scrollWidth + 1) + "px";
-//     });
-
-// inputValue.forEach((input) => {
-//      //пробник непоганий
-//     input.addEventListener("input", () => {
-//         alert(input.value);
-//         if (inputValue.values === '') {
-//             saveQuizButton.disabled = true;
-//             // alert("Заповніть всі поля");
-//         }
-//     //     input.style.width = "auto";
-//     //     input.style.width = (input.scrollWidth + 1) + "px";
-//     });
-
-// });
-
 input.addEventListener("input", () => {
 	input.style.width = "auto";
 	input.style.width = input.scrollWidth + 1 + "px";
-	// parseFloat(input.style.width) <= input.scrollWidth ? input.style.width = (input.scrollWidth + 1) + "px": null;
-
 	charCount.textContent = `${input.value.length}/30`;
 
 	if (input.value.length >= 30) {
@@ -174,27 +129,6 @@ saveQuizButton.addEventListener("click", () => {
 		console.log(i);
 	}
 
-	//пробник непоганий
-
-	//const allFilled = Array.from(inputValue).every(inp => inp.value.trim() !== '');
-	// if (inputValue.forEach.value !== '') {
-	//     saveQuizButton.disabled = false;
-	//     // alert("Заповніть всі поля");
-	// };
-
-	// inputValueClick.forEach((input) => {
-	//     // i++;
-	//     input.addEventListener("input", () => {
-
-	//     // console.log(i);
-	//     if (input.value.trim() === '') {
-	//         input.classList.add("input-error");
-	//     } else {
-	//         input.classList.remove("input-error");
-	//     }
-	//      });
-	// });
-
 	if (document.querySelectorAll(".input-error").length === 0) {
 		alert("Quiz saved!");
 		let localStorageParse = JSON.parse(localStorage.getItem("storage"));
@@ -220,8 +154,8 @@ saveQuizButton.addEventListener("click", () => {
 				});
 			});
 		});
+
 		//додавання в локал сторедж
-		//
 		localStorageParse.quizzes.push(question);
 		localStorage.setItem("storage", JSON.stringify(localStorageParse));
 	} else {
