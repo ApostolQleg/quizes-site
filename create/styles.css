@@ -76,12 +76,17 @@ footer {
 .saveQuizButton:hover {
 	background-color: rgb(124, 74, 124);
 }
-.quizName {
+.saveQuizButton:disabled {
+	background-color: grey;
+	cursor: not-allowed;
+	color:rgb(190, 190, 190);
+}
+/* .quizName {
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
 	margin-bottom: 0px;
-}
+} */
 .quizTitle {
 	border: none;
 	background-color: transparent;
@@ -90,15 +95,36 @@ footer {
 	outline: none;
 	caret-color: white;
 	color: white;
-	font-size: 22px;
-	margin-top: 20px;
+	font-size: 24px;
 	font-family: "Pixelify Sans", sans-serif;
 	/* width: fit-content; */
-	display: inline-block; /* 👈 робить ширину під контент */
-	width: fit-content; /* 👈 підтримує сучасний підхід */
+	display: inline-block;
+	width: fit-content; 
 }
 .quizTitle::placeholder {
 	color: rgba(255, 255, 255, 0.7);
+}
+.quizDescriptionInput {
+	border: none;
+	background-color: transparent;
+	border: 2px solid white;
+	text-align: left;
+	outline: none;
+	caret-color: white;
+	color: white;
+	font-size: 19px;
+	font-family: "Pixelify Sans", sans-serif;
+	width: fit-content;
+	display: inline-block;
+	width: 40%;  
+}
+.input-error {
+	background-color: rgba(255, 0, 0, 0.2);
+	border: 2px solid red;
+}
+.questionText.input-error {
+	background-color: rgba(255, 0, 0, 0.2);
+	border: 2px solid red;
 }
 .addquestion {
 	background-color: rgb(146, 6, 146);
@@ -126,7 +152,7 @@ footer {
 	font-size: 20px;
 }
 
-.material-symbols-outlined {
+#deletequestion {
 	text-align: right;
 	margin-top: 12px;
 	right: 15px;
@@ -141,7 +167,7 @@ footer {
 	outline: none;
 	caret-color: rgb(22, 20, 20);
 	color: rgb(0, 0, 0);
-	font-size: 18px;
+	font-size: 20px;
 	margin-bottom: 10px;
 	display: block;
 	inline-size: fit-content;
@@ -171,6 +197,68 @@ footer {
 .addvariant:hover {
 	background-color: rgb(124, 74, 124);
 }
+.quizName p {
+	margin: 0;
+	font-size: 20px;
+	color: white;
+	font-family: 'Pixelify Sans', sans-serif;
+}
+.quizName .reset {
+	background-color: rgb(255, 0, 98);
+	color: white;
+	border: none;
+	padding: 5px 10px;
+	border-radius: 5px;
+	font-size: 16px;
+	font-family: 'Pixelify Sans', sans-serif;
+}
+.quizName .reset:hover {
+	background-color: rgb(124, 74, 124);
+}	
+.quizName{
+	    display: flex;
+
+
+
+		/* flex-direction: row;      */
+        align-items: center;     
+  		
+		gap: 10px;
+		margin-top: 20px;
+}
+label {
+	display: flex;
+	gap: 10px;
+	align-items: center;
+	
+}
+#deletevariant {
+	background-color: rgb(255, 0, 98);
+	color: white;
+	border: none;
+	padding: 5px 10px;
+	border-radius: 5px;
+	font-size: 16px;
+	
+}
+.optionText {
+	background-color: transparent;
+	border: 1px solid white;
+	outline: none;
+	caret-color: rgb(22, 20, 20);
+	color: rgb(0, 0, 0);
+	font-size: 18px;
+	font-family: "Pixelify Sans", sans-serif;
+}
+input[type="checkbox"] {
+	width: 15px;
+	height: 15px;
+}
+/* .quizName .reset:disabled {
+	background-color: grey;
+	cursor: not-allowed;
+} */
+
 
 @media screen and (max-width: 768px) {
 	.header h1 {

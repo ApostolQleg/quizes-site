@@ -34,14 +34,20 @@
 		<div class="container" id="container">
 			<div class="quizName">
 				<input type="text" class="quizTitle" placeholder="Назва опитування" />
+				<p class = "charCount">0/30</p>
+				<button class="reset">очистити</button>
 				<!-- <button class="createQuizButton">створити</button> -->
 			</div>
+			<!-- <div class="quizDescription"> -->
+				<input type="text" class="quizDescriptionInput" placeholder="Короткий опис опитування" />
+				<!-- <button class="createQuizButton">створити</button> -->
+			<!-- </div> -->
 			<!-- <h2>Додати питання</h2> -->
 			<!-- Питання буде додаватися сюди -->
 			<button class="addquestion" id="addquestion">+</button>
 
 			<!-- Перший елемент, який буде клонуватися  -->
-			<div class="quizzesContainer" id="quizzesContainer">
+			<div class="quizzesContainer" >
 				<!-- контейнер, як буде виглядати мій елемент  -->
 				<button class="material-symbols-outlined" id="deletequestion">delete</button>
 				<p class="questionNum">Запитання № 1</p>
@@ -51,15 +57,16 @@
 				<label>
 					<input type="checkbox" name="option1" value="1" class="isCorrect" /><input
 						type="text"
-						id="questionText"
+						class="optionText"
 						placeholder="Варіант відповіді"
 						value="Так"
 					/>
+					<button class="material-symbols-outlined" id="deletevariant">delete</button>
 				</label>
 				<label>
-					<input type="checkbox" name="option1" value="1" class="sCorrect" /><input
+					<input type="checkbox" name="option1" value="1" class="isCorrect" /><input
 						type="text"
-						id="questionText"
+						class="optionText"
 						placeholder="Варіант відповіді"
 						value="Ні"
 					/>
