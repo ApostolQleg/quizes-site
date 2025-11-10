@@ -1,17 +1,14 @@
 const addQuestion = document.getElementById("addquestion");
 const container = document.getElementById("container");
-//const saveQuizButton = document.getElementById("saveQuizButton");
 const quizzesContainer = document.getElementById("quizzesContainer");
-// const deleteQuestion = document.querySelectorAll(".deletequestion");
-// const questionNum = quiz.querySelector('.questionNum');
 
 let counter = 2;
 
 addQuestion.addEventListener("click", () => {
-    const question = document.createElement("div");
-    saveQuizButton.before(question);
-    question.className = "quizzesContainer";
-    question.innerHTML = `
+	const question = document.createElement("div");
+	saveQuizButton.before(question);
+	question.className = "quizzesContainer";
+	question.innerHTML = `
 		<button class="material-symbols-outlined" id="deletequestion" class="deletequestion">delete</button>
 		<p class="questionNum">Запитання № ${counter}</p>
 				<input type="text" class="questionText" placeholder="Текст питання" />
@@ -43,16 +40,16 @@ addQuestion.addEventListener("click", () => {
 				<!-- Тут будуть відображатися створені опитування -->
 				 <button class="addvariant" id="addvariant">+</button>
 	`;
-    counter++;
+	counter++;
 });
 
 // Listen for ALL clicks inside the container
 container.addEventListener("click", function (el) {
-    // Handle different buttons/elements
-    if (el.target.matches("#addvariant")) {
-        const variant = document.createElement("div");
-        variant.className = "variantContainer";
-        variant.innerHTML = `
+	// Handle different buttons/elements
+	if (el.target.matches("#addvariant")) {
+		const variant = document.createElement("div");
+		variant.className = "variantContainer";
+		variant.innerHTML = `
 		<label>
 					<input type="checkbox" name="option1" value="1" class="isCorrect" /><input
 						type="text"
@@ -64,33 +61,29 @@ container.addEventListener("click", function (el) {
 				</label>
 	`;
 
-        el.target.closest(".quizzesContainer").insertBefore(variant, el.target);
-    }
+		el.target.closest(".quizzesContainer").insertBefore(variant, el.target);
+	}
 
-    if (el.target.matches("#deletequestion") && counter > 2) {
-        el.target.closest(".quizzesContainer").remove();
-        counter--;
+	if (el.target.matches("#deletequestion") && counter > 2) {
+		el.target.closest(".quizzesContainer").remove();
+		counter--;
 
-        for (let i = 1; i < counter; i++) {
-            let questionNum = document.querySelectorAll(".questionNum");
+		for (let i = 1; i < counter; i++) {
+			let questionNum = document.querySelectorAll(".questionNum");
 
-            questionNum.forEach((num, index) => {
-                num.textContent = `Запитання № ${index + 1}`;
-            });
-        }
-    }
-    if (el.target.matches('#deletevariant')) {
-        const thisContainer = el.target.closest('.quizzesContainer');
+			questionNum.forEach((num, index) => {
+				num.textContent = `Запитання № ${index + 1}`;
+			});
+		}
+	}
+	if (el.target.matches("#deletevariant")) {
+		const thisContainer = el.target.closest(".quizzesContainer");
 
-        if (thisContainer.querySelectorAll('.optionText').length > 2){
-            el.target.closest('label').remove();
-        };
-    };
+		if (thisContainer.querySelectorAll(".optionText").length > 2) {
+			el.target.closest("label").remove();
+		}
+	}
 });
-
-
-
-
 
 // приклад роботи localstorage
 //Блок коду для збереження тесту в localStorage
@@ -102,13 +95,8 @@ const reset = document.querySelector(".reset");
 const description = document.querySelector(".quizDescriptionInput");
 const charCount = document.querySelector(".charCount");
 
-
 //робочий код, який треба оптимізувати
 // saveQuizButton.disabled = true;
-
-
-
-
 
 // inputValue.forEach((input) => {
 //      //пробник непоганий
@@ -135,11 +123,6 @@ const charCount = document.querySelector(".charCount");
 //     //     input.style.width = (input.scrollWidth + 1) + "px";
 //     });
 
-
-
-
-
-
 // inputValue.forEach((input) => {
 //      //пробник непоганий
 //     input.addEventListener("input", () => {
@@ -147,7 +130,7 @@ const charCount = document.querySelector(".charCount");
 //         if (inputValue.values === '') {
 //             saveQuizButton.disabled = true;
 //             // alert("Заповніть всі поля");
-//         } 
+//         }
 //     //     input.style.width = "auto";
 //     //     input.style.width = (input.scrollWidth + 1) + "px";
 //     });
@@ -155,99 +138,97 @@ const charCount = document.querySelector(".charCount");
 // });
 
 input.addEventListener("input", () => {
-    input.style.width = "auto";
-    input.style.width = (input.scrollWidth + 1) + "px";
-    // parseFloat(input.style.width) <= input.scrollWidth ? input.style.width = (input.scrollWidth + 1) + "px": null;
-    
-    charCount.textContent = `${input.value.length}/30`;
+	input.style.width = "auto";
+	input.style.width = input.scrollWidth + 1 + "px";
+	// parseFloat(input.style.width) <= input.scrollWidth ? input.style.width = (input.scrollWidth + 1) + "px": null;
 
-    if (input.value.length >= 30) {
-    input.disabled = true;
-    };   
+	charCount.textContent = `${input.value.length}/30`;
+
+	if (input.value.length >= 30) {
+		input.disabled = true;
+	}
 });
 
-reset.addEventListener('click', () => {
-    input.value = '';
-    input.disabled = false;
-    charCount.textContent = `${input.value.length}/30`;
+reset.addEventListener("click", () => {
+	input.value = "";
+	input.disabled = false;
+	charCount.textContent = `${input.value.length}/30`;
 });
 
 let question = {
-    title: "",
-    description: "",
-    questions: [],
+	title: "",
+	description: "",
+	questions: [],
 };
 
 saveQuizButton.addEventListener("click", () => {
-    const inputValueClick = document.querySelectorAll("input:not([type=checkbox])");
-    let i = 0;
-    for (let input of inputValueClick) {
-        if (input.value.trim() === '') {
-            input.classList.add("input-error");
-        } else {
-            input.classList.remove("input-error");
-        }
-        i++;
-        console.log(i);
-    }
-   
-     //пробник непоганий
-    
-        //const allFilled = Array.from(inputValue).every(inp => inp.value.trim() !== '');
-        // if (inputValue.forEach.value !== '') {
-        //     saveQuizButton.disabled = false;
-        //     // alert("Заповніть всі поля");
-        // };
-        
-    
-    // inputValueClick.forEach((input) => {
-    //     // i++;
-    //     input.addEventListener("input", () => {
-        
-    //     // console.log(i);
-    //     if (input.value.trim() === '') {
-    //         input.classList.add("input-error");
-    //     } else {
-    //         input.classList.remove("input-error");
-    //     }
-    //      });
-    // });
+	const inputValueClick = document.querySelectorAll("input:not([type=checkbox])");
+	let i = 0;
+	for (let input of inputValueClick) {
+		if (input.value.trim() === "") {
+			input.classList.add("input-error");
+		} else {
+			input.classList.remove("input-error");
+		}
+		i++;
+		console.log(i);
+	}
 
+	//пробник непоганий
 
-    if (document.querySelectorAll(".input-error").length === 0) {
-    alert("Quiz saved!");
-    let localStorageParse = JSON.parse(localStorage.getItem("storage"));
-    const quizzesContainer = document.querySelectorAll(".quizzesContainer");
-    // const isCorrect = document.querySelector(".isCorrect").checked;
-    // const questionNumber = question.questions.length;
+	//const allFilled = Array.from(inputValue).every(inp => inp.value.trim() !== '');
+	// if (inputValue.forEach.value !== '') {
+	//     saveQuizButton.disabled = false;
+	//     // alert("Заповніть всі поля");
+	// };
 
-    // пуш значень для main storage
-    question.title = input.value;
-    question.description = description.value;
-    // пуш значень для questions
-    quizzesContainer.forEach((quiz, num) => {
-        const questionText = quiz.querySelector(".questionText").value;   
-        const options = quiz.querySelectorAll('.optionText');
-        const isCorrect = quiz.querySelectorAll(".isCorrect");
-        question.questions[num] = { text: questionText, options: [] };
+	// inputValueClick.forEach((input) => {
+	//     // i++;
+	//     input.addEventListener("input", () => {
 
-        options.forEach((val, index) => {
-            question.questions[num].options.push({
-                    text: val.value,
-                    id: index,
-                    isCorrect: isCorrect[index].checked, // Тут поки заглушка, потім переробити
-                });
-        });
-    });
-    //додавання в локал сторедж
-    //
-    localStorageParse.quizzes.push(question);
-    localStorage.setItem('storage', JSON.stringify(localStorageParse));
-    } else{
-        alert("Заповни поля");
-    }; 
+	//     // console.log(i);
+	//     if (input.value.trim() === '') {
+	//         input.classList.add("input-error");
+	//     } else {
+	//         input.classList.remove("input-error");
+	//     }
+	//      });
+	// });
+
+	if (document.querySelectorAll(".input-error").length === 0) {
+		alert("Quiz saved!");
+		let localStorageParse = JSON.parse(localStorage.getItem("storage"));
+		const quizzesContainer = document.querySelectorAll(".quizzesContainer");
+		// const isCorrect = document.querySelector(".isCorrect").checked;
+		// const questionNumber = question.questions.length;
+
+		// пуш значень для main storage
+		question.title = input.value;
+		question.description = description.value;
+		// пуш значень для questions
+		quizzesContainer.forEach((quiz, num) => {
+			const questionText = quiz.querySelector(".questionText").value;
+			const options = quiz.querySelectorAll(".optionText");
+			const isCorrect = quiz.querySelectorAll(".isCorrect");
+			question.questions[num] = { text: questionText, options: [] };
+
+			options.forEach((val, index) => {
+				question.questions[num].options.push({
+					text: val.value,
+					id: index,
+					isCorrect: isCorrect[index].checked, // Тут поки заглушка, потім переробити
+				});
+			});
+		});
+		//додавання в локал сторедж
+		//
+		localStorageParse.quizzes.push(question);
+		localStorage.setItem("storage", JSON.stringify(localStorageParse));
+	} else {
+		alert("Заповни поля");
+	}
 });
-   
+
 // });
 
 // створив локал для сторінки мейн
