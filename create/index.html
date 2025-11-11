@@ -22,6 +22,7 @@
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 	</head>
 	<body>
+		<img src="/textures/logo-icon.png" alt="logo" id="logo" />
 		<header class="header">
 			<h1>Create Page</h1>
 			<a href="../" class="backButton"><img src="/textures/back-icon.png" /></a>
@@ -34,20 +35,24 @@
 		<div class="container" id="container">
 			<div class="quizName">
 				<input type="text" class="quizTitle" placeholder="Назва опитування" />
-				<p class = "charCount">0/30</p>
+				<p class="charCount">0/30</p>
 				<button class="reset">очистити</button>
 				<!-- <button class="createQuizButton">створити</button> -->
 			</div>
 			<!-- <div class="quizDescription"> -->
-				<input type="text" class="quizDescriptionInput" placeholder="Короткий опис опитування" />
-				<!-- <button class="createQuizButton">створити</button> -->
+			<input
+				type="text"
+				class="quizDescriptionInput"
+				placeholder="Короткий опис опитування"
+			/>
+			<!-- <button class="createQuizButton">створити</button> -->
 			<!-- </div> -->
 			<!-- <h2>Додати питання</h2> -->
 			<!-- Питання буде додаватися сюди -->
 			<button class="addquestion" id="addquestion">+</button>
 
 			<!-- Перший елемент, який буде клонуватися  -->
-			<div class="quizzesContainer" >
+			<div class="quizzesContainer">
 				<!-- контейнер, як буде виглядати мій елемент  -->
 				<button class="material-symbols-outlined" id="deletequestion">delete</button>
 				<p class="questionNum">Запитання № 1</p>
@@ -79,8 +84,10 @@
 
 			<button class="saveQuizButton" id="saveQuizButton">Зберегти опитування</button>
 		</div>
-		<footer class="footer">Bohdanchik piska<br />main designer: Bohdanchik<br />
-			and other motherfuckers: Oleg, Vlad, Dima</footer>
+		<footer class="footer">
+			Bohdanchik piska<br />main designer: Bohdanchik<br />
+			and other motherfuckers: Oleg, Vlad, Dima
+		</footer>
 		<script src="/create/script.js"></script>
 	</body>
 </html>

@@ -159,4 +159,9 @@ canvas.fx {
 	#toolbar {
 		margin: 5px 0;
 	}
+
+	#logo {
+		width: 30px;
+		height: 30px;
+	}
 }
