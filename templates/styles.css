@@ -33,6 +33,7 @@ header {
 	font-family: "Stalinist One", sans-serif;
 	image-rendering: pixelated;
 }
+
 header h1 {
 	font-size: 40px;
 	margin: auto;
@@ -115,7 +116,7 @@ footer {
 	text-decoration: none;
 }
 
-/* for piskas */
+/* for piskas cursors */
 button,
 a,
 input[type="checkbox"] {

@@ -9,7 +9,7 @@
 
 	/* Бодя, я записав скороченіше і можливо так краще */
 	grid-template: auto / repeat(auto-fill, minmax(20vw, 20vw));
-	
+
 	justify-content: center;
 }
 
@@ -37,11 +37,13 @@
 }
 
 #manage-quiz-button {
-	left: 5%;
+	transform: translateX(20%);
+	left: 0;
 }
 
 #delete-quiz-button {
-	left: 95%;
+	transform: translateX(-20%);
+	right: 0;
 }
 
 #overlay {
