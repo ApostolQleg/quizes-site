@@ -575,6 +575,15 @@ const tests = {
 			],
 		},
 	],
+	// --- Секція результатів залишається без змін (для прикладу) ---
+	results: [
+		{
+			timestamp: "2024-06-10T12:00:00Z",
+			title: "Тест з англійської мови (A1)",
+			summary: 2,
+			answers: [[], []],
+		},
+	],
 };
 
 // Save localStorage to storage object and add new tests to this object
