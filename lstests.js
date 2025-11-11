@@ -1,5 +1,5 @@
 // Test quizzes
-let storage = {
+const tests = {
 	quizzes: [
 		// --- ТЕСТ 1: Англійська мова (A1) ---
 		{
@@ -586,4 +586,10 @@ let storage = {
 	],
 };
 
-localStorage.setItem("storage", JSON.stringify(storage));
+// Save localStorage to storage object and add new tests to this object
+
+
+let storage = JSON.parse(localStorage.getItem("storage")) || {};
+tests.quizzes = (storage.quizzes || []).concat(tests.quizzes);
+
+localStorage.setItem("storage", JSON.stringify(tests));
