@@ -11,7 +11,7 @@ quizzes.forEach((quiz) => {
 	button.innerHTML = quiz.title + "<br>Questions: " + quiz.questions.length;
 	container.appendChild(button);
 
-	// Start quiz on button click
+	// button functionality
 	button.addEventListener("click", () => {
 		// Load the selected quiz
 		storage.selected = quiz;

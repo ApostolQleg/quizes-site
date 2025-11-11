@@ -10,4 +10,12 @@ results.forEach((result) => {
 	button.className = "quiz";
 	button.innerHTML = result.title;
 	container.appendChild(button);
+
+	// button functionality
+	button.addEventListener("click", () => {
+		// Load the selected result
+		storage.selected = result;
+		localStorage.setItem("storage", JSON.stringify(storage));
+		window.location.href = "/quiz/result";
+	});
 });
