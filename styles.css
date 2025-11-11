@@ -72,6 +72,13 @@
 	z-index: 1;
 }
 
+.quiz img {
+	position: relative;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+}
+
 @media screen and (max-width: 768px) {
 	.quiz {
 		font-size: 13px;
