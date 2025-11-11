@@ -135,7 +135,7 @@ submitBtn.addEventListener("click", () => {
 
 	const result = {
 		timestamp: new Date().toISOString(),
-		quizTitle: selected.title,
+		title: selected.title,
 		summary: summary,
 		answers: answers,
 	};

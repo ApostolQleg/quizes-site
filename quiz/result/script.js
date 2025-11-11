@@ -1,47 +1,45 @@
 document.addEventListener("DOMContentLoaded", () => {
-    const container = document.getElementById("container");
-    const storage = JSON.parse(localStorage.getItem("storage")) || {};
+	const container = document.getElementById("container");
+	const storage = JSON.parse(localStorage.getItem("storage")) || {};
 
-    const results = storage.results || [];
-    const latestResult = results[results.length - 1];
+	const results = storage.results || [];
+	const latestResult = results[results.length - 1];
 
-    if (latestResult && storage.quizzes) {
-        const quiz = storage.quizzes.find(q => q.title === latestResult.quizTitle);
-        const totalQuestions = quiz ? quiz.questions.length : 0;
-        
-        const titleElementDiv = document.createElement("div");
-        titleElementDiv.className = "titleElementDiv";
+	if (latestResult && storage.quizzes) {
+		const quiz = storage.quizzes.find((q) => q.title === latestResult.title);
+		const totalQuestions = quiz ? quiz.questions.length : 0;
 
-        const titleElement = document.createElement("h2");
-        titleElement.className = "resultTitle";
-        titleElement.textContent = `${latestResult.quizTitle}`;
-        titleElementDiv.appendChild(titleElement);
+		const titleElementDiv = document.createElement("div");
+		titleElementDiv.className = "titleElementDiv";
 
-        container.appendChild(titleElementDiv);
-        
+		const titleElement = document.createElement("h2");
+		titleElement.className = "resultTitle";
+		titleElement.textContent = `${latestResult.title}`;
+		titleElementDiv.appendChild(titleElement);
 
-        const summaryElementDiv = document.createElement("div");
-        summaryElementDiv.className = "summaryElementDiv";
-        
-        const summaryElement = document.createElement("p");
-        summaryElement.className = "result-summary";
-        summaryElement.textContent = `Your result: ${latestResult.summary} / ${totalQuestions}`;
-        container.appendChild(summaryElement);
-        summaryElementDiv.appendChild(summaryElement);
-        
-        container.appendChild(summaryElementDiv);
+		container.appendChild(titleElementDiv);
 
-        const backButton = document.createElement("button");
-        backButton.className = "backButton";
-        backButton.textContent = "Back to Quizzes";
-        backButton.addEventListener("click", () => {
-            window.location.href = "../../";
-        });
-        container.appendChild(backButton);
+		const summaryElementDiv = document.createElement("div");
+		summaryElementDiv.className = "summaryElementDiv";
 
-    } else {
-        const errorElement = document.createElement("p");
-        errorElement.textContent = "Результат тесту не знайдено. Спробуйте пройти тест ще раз.";
-        container.appendChild(errorElement);
-    }
+		const summaryElement = document.createElement("p");
+		summaryElement.className = "result-summary";
+		summaryElement.textContent = `Your result: ${latestResult.summary} / ${totalQuestions}`;
+		container.appendChild(summaryElement);
+		summaryElementDiv.appendChild(summaryElement);
+
+		container.appendChild(summaryElementDiv);
+
+		const backButton = document.createElement("button");
+		backButton.className = "backButton";
+		backButton.textContent = "Back to Quizzes";
+		backButton.addEventListener("click", () => {
+			window.location.href = "../../";
+		});
+		container.appendChild(backButton);
+	} else {
+		const errorElement = document.createElement("p");
+		errorElement.textContent = "Результат тесту не знайдено. Спробуйте пройти тест ще раз.";
+		container.appendChild(errorElement);
+	}
 });
