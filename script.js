@@ -25,52 +25,59 @@ quizzes.forEach((quiz) => {
 		overlay.id = "overlay";
 		document.body.appendChild(overlay);
 
-		// add button to show description and remove clicked button
-		const description = document.createElement("button");
-		description.className = "quiz";
-		description.id = "description";
-		description.style.top = button.offsetTop + "px";
-		description.innerHTML = quiz.title + "<br>" + quiz.description + "<br>";
-		document.body.appendChild(description);
+		// remove clicked button and add button to show description
 		button.remove();
+		const description = addButton("description", "quiz", "", document.body);
+		description.innerHTML = quiz.title + "<br>" + quiz.description + "<br>";
 
 		// add start quiz button
-		const startQuizButton = document.createElement("button");
-		startQuizButton.id = "start-quiz-button";
-		startQuizButton.className = "description-button";
-		startQuizButton.innerText = "Start Quiz";
-		description.appendChild(startQuizButton);
+		const startQuizButton = addButton(
+			"start-quiz-button",
+			"description-button",
+			"Start Quiz",
+			description
+		);
+
+		// start quiz button functionality
 		startQuizButton.addEventListener("click", () => {
 			window.location.href = "/quiz";
 		});
 
 		// add manage quiz button
-		const manageQuizButton = document.createElement("button");
-		manageQuizButton.id = "manage-quiz-button";
-		manageQuizButton.className = "description-button";
-		manageQuizButton.innerText = "Manage";
-		description.appendChild(manageQuizButton);
+		const manageQuizButton = addButton(
+			"manage-quiz-button",
+			"description-button",
+			"Manage",
+			description
+		);
+
+		// manage quiz button functionality
 		manageQuizButton.addEventListener("click", () => {
 			window.location.href = "/manage";
 		});
 
 		// add delete quiz button
-		const deleteQuizButton = document.createElement("button");
-		deleteQuizButton.id = "delete-quiz-button";
-		deleteQuizButton.className = "description-button";
-		deleteQuizButton.innerText = "Delete";
-		description.appendChild(deleteQuizButton);
+		const deleteQuizButton = addButton(
+			"delete-quiz-button",
+			"description-button",
+			"Delete",
+			description
+		);
+
+		// delete quiz button functionality
 		deleteQuizButton.addEventListener("click", () => {
-			// somehow delete quiz from localstorage
+			storage = JSON.parse(localStorage.getItem("storage"));
+			storage.quizzes = storage.quizzes.filter((q) => q.title !== quiz.title);
+			localStorage.setItem("storage", JSON.stringify(storage));
+			window.location.reload();
 		});
 
 		// if description clicked
 		description.addEventListener("click", () => {
 			// remove overlay and description
 			const overlay = document.getElementById("overlay");
-			overlay.remove();
-
 			const description = document.getElementById("description");
+			overlay.remove();
 			description.remove();
 
 			// re-add the button to the container
@@ -78,3 +85,12 @@ quizzes.forEach((quiz) => {
 		});
 	});
 });
+
+function addButton(id, className, text, parent) {
+	const button = document.createElement("button");
+	button.id = id;
+	button.className = className;
+	button.innerText = text;
+	parent.appendChild(button);
+	return button;
+}
