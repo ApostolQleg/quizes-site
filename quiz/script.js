@@ -83,6 +83,65 @@ selected.questions.forEach((question) => {
 
 	container.appendChild(questionDiv);
 	question.options.forEach((option) => {
-		
+		const optionDiv = document.createElement("div");
+		optionDiv.className = "optionDiv";
+
+		const optionInput = document.createElement("input");
+		optionInput.type = "checkbox";
+		optionInput.name = `question-${question.text}`;
+		optionInput.value = option.id;
+
+		const optionLabel = document.createElement("label");
+		optionLabel.htmlFor = `option-${option.id}`;
+		optionLabel.innerHTML = option.text;
+
+		optionDiv.appendChild(optionInput);
+		optionDiv.appendChild(optionLabel);
+
+		container.appendChild(optionDiv);
 	});
+});
+
+
+submitBtn.addEventListener("click", () => {
+	const answers = [];
+	selected.questions.forEach((question) => {
+		const selectedOptions = [];
+		question.options.forEach((option) => {
+			const optionInput = document.querySelector( 
+				`input[name="question-${question.text}"][value="${option.id}"]`
+			);
+			if (optionInput.checked) {
+				selectedOptions.push(option.id);
+			}
+		});
+		answers.push(selectedOptions);
+	});
+
+	let summary = 0;
+	selected.questions.forEach((question, qIndex) => {
+		const correctOptionIds = question.options
+			.filter((option) => option.isCorrect)
+			.map((option) => option.id);
+		const selectedOptionIds = answers[qIndex];
+
+		if (
+			correctOptionIds.length === selectedOptionIds.length &&
+			correctOptionIds.every((id) => selectedOptionIds.includes(id))
+		) {
+			summary++;
+		}
+	});
+
+	const result = {
+		timestamp: new Date().toISOString(),
+		quizTitle: selected.title,
+		summary: summary,
+		answers: answers,
+	};
+
+	storage.results.push(result);
+	localStorage.setItem("storage", JSON.stringify(storage));
+
+	window.location.href = "/quiz/result";
 });
