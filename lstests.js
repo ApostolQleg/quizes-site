@@ -589,7 +589,9 @@ const tests = {
 // Save localStorage to storage object and add new tests to this object
 
 
-let storage = JSON.parse(localStorage.getItem("storage")) || {};
-tests.quizzes = (storage.quizzes || []).concat(tests.quizzes);
-
+// let storage = JSON.parse(localStorage.getItem("storage")) || {};
+// tests.quizzes = (storage.quizzes || []).concat(tests.quizzes);
+let storage = JSON.parse(localStorage.getItem("storage"));
+if (!storage) {
 localStorage.setItem("storage", JSON.stringify(tests));
+};

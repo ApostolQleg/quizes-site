@@ -2,6 +2,10 @@ const addQuestion = document.getElementById("addquestion");
 const container = document.getElementById("container");
 const quizzesContainer = document.getElementById("quizzesContainer");
 let counter = 2;
+const localStorageNull = {
+	quizzes: [],
+	results: [],
+};
 
 // Add new question on button click
 addQuestion.addEventListener("click", () => {
@@ -104,6 +108,11 @@ input.addEventListener("input", () => {
 	}
 });
 
+// description.addEventListener('input', () => {
+// 	description.style.width = "auto";
+// 	description.style.width = description.scrollWidth + 1 + 'px';
+// });
+
 reset.addEventListener("click", () => {
 	input.value = "";
 	input.disabled = false;
@@ -156,8 +165,15 @@ saveQuizButton.addEventListener("click", () => {
 		});
 
 		//додавання в локал сторедж
-		localStorageParse.quizzes.push(question);
-		localStorage.setItem("storage", JSON.stringify(localStorageParse));
+		
+		if (!localStorageParse) {
+			localStorageNull.quizzes.push(question);
+			localStorage.setItem("storage", JSON.stringify(localStorageNull));
+		} else {
+			localStorageParse.quizzes.push(question);
+			localStorage.setItem("storage", JSON.stringify(localStorageParse));
+		};
+		window.location.href = '../';
 	} else {
 		alert("Заповни поля");
 	}
