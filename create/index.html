@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+<<<<<<< HEAD
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -58,30 +59,122 @@
 				<p class="questionNum">Запитання № 1</p>
 				<input type="text" class="questionText" placeholder="Текст питання" />
 				<p class="variant">Варіанти відповіді</p>
+=======
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>QuizTime</title>
+        <link rel="stylesheet" href="/create/styles.css" />
+        <link
+            rel="stylesheet"
+            href="https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400..700&display=swap"
+        />
+        <link
+            rel="stylesheet"
+            href="https://fonts.googleapis.com/css2?family=Stalinist+One&display=swap"
+        />
+        <!-- Тимчасова кнопка видалити -->
+        <link
+            rel="stylesheet"
+            href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&icon_names=delete"
+        />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    </head>
+    <body>
+        <header class="header">
+            <h1>Create Page</h1>
+            <a href="../" class="backButton"
+                ><img src="/textures/back-icon.png"
+            /></a>
+        </header>
+        <div id="toolbar">
+            <a href="/" class="toolbar">Quizzes</a>
+            <a href="/results" class="toolbar">Results</a>
+            <a href="/help" class="toolbar">Help</a>
+        </div>
+        <div class="container" id="container">
+            <div class="quizName">
+                <input
+                    type="text"
+                    class="quizTitle"
+                    placeholder="Назва опитування"
+                />
+                <p class="charCount">0/30</p>
+                <button class="reset">очистити</button>
+                <!-- <button class="createQuizButton">створити</button> -->
+            </div>
+            <!-- <div class="quizDescription"> -->
+            <input
+                type="text"
+                class="quizDescriptionInput"
+                placeholder="Короткий опис опитування"
+            />
+            <!-- <button class="createQuizButton">створити</button> -->
+            <!-- </div> -->
+            <!-- <h2>Додати питання</h2> -->
+            <!-- Питання буде додаватися сюди -->
+            <button class="addquestion" id="addquestion">+</button>
 
-				<label>
-					<input type="checkbox" name="option1" value="1" class="isCorrect" /><input
-						type="text"
-						class="optionText"
-						placeholder="Варіант відповіді"
-						value="Так"
-					/>
-					<button class="material-symbols-outlined" id="deletevariant">delete</button>
-				</label>
-				<label>
-					<input type="checkbox" name="option1" value="1" class="isCorrect" /><input
-						type="text"
-						class="optionText"
-						placeholder="Варіант відповіді"
-						value="Ні"
-					/>
-					<button class="material-symbols-outlined" id="deletevariant">delete</button>
-				</label>
+            <!-- Перший елемент, який буде клонуватися  -->
+            <div class="quizzesContainer">
+                <!-- контейнер, як буде виглядати мій елемент  -->
+                <button class="material-symbols-outlined" id="deletequestion">
+                    delete
+                </button>
+                <p class="questionNum">Запитання № 1</p>
+                <input
+                    type="text"
+                    class="questionText"
+                    placeholder="Текст питання"
+                />
+                <p class="variant">Варіанти відповіді</p>
+>>>>>>> 7be9633 (мої поточні зміни)
 
-				<!-- Тут будуть відображатися створені опитування -->
-				<button class="addvariant" id="addvariant">+</button>
-			</div>
+                <label>
+                    <input
+                        type="checkbox"
+                        name="option1"
+                        value="1"
+                        class="isCorrect"
+                    /><input
+                        type="text"
+                        class="optionText"
+                        placeholder="Варіант відповіді"
+                        value="Так"
+                    />
+                    <button
+                        class="material-symbols-outlined"
+                        id="deletevariant"
+                    >
+                        delete
+                    </button>
+                </label>
+                <label>
+                    <input
+                        type="checkbox"
+                        name="option1"
+                        value="1"
+                        class="isCorrect"
+                    /><input
+                        type="text"
+                        class="optionText"
+                        placeholder="Варіант відповіді"
+                        value="Ні"
+                    />
+                    <button
+                        class="material-symbols-outlined"
+                        id="deletevariant"
+                    >
+                        delete
+                    </button>
+                </label>
 
+                <!-- Тут будуть відображатися створені опитування -->
+                <button class="addvariant" id="addvariant">+</button>
+            </div>
+
+<<<<<<< HEAD
 			<button class="saveQuizButton" id="saveQuizButton">Зберегти опитування</button>
 		</div>
 		<footer class="footer">
@@ -90,4 +183,16 @@
 		</footer>
 		<script src="/create/script.js"></script>
 	</body>
+=======
+            <button class="saveQuizButton" id="saveQuizButton">
+                Зберегти опитування
+            </button>
+        </div>
+        <footer class="footer">
+            Bohdanchik piska<br />main designer: Bohdanchik<br />
+            and other motherfuckers: Oleg, Vlad, Dima
+        </footer>
+        <script src="/create/script.js"></script>
+    </body>
+>>>>>>> 7be9633 (мої поточні зміни)
 </html>
