@@ -22,6 +22,7 @@
 	transform: translate(-50%, -50%);
 	width: 80vw;
 	z-index: 3;
+	display: flex;
 }
 
 /* Бодя перероби це по умному */
@@ -33,17 +34,18 @@
 	height: 50px;
 	position: absolute;
 	transform: translateX(-50%);
+	left: 50%;
 	width: 100px;
 }
 
 #manage-quiz-button {
-	transform: translateX(20%);
-	left: 0;
+	transform: translateX(0%);
+	left: 5%;
 }
 
 #delete-quiz-button {
-	transform: translateX(-20%);
-	right: 0;
+	transform: translateX(-100%);
+	left: 95%;
 }
 
 #overlay {

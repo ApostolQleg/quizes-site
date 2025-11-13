@@ -13,6 +13,9 @@ quizzes.forEach((quiz) => {
 
 	// button functionality
 	button.addEventListener("click", () => {
+		// remove clicked button from container
+		button.remove();
+
 		// Load the selected quiz
 		storage.selected = quiz;
 		localStorage.setItem("storage", JSON.stringify(storage));
@@ -21,14 +24,17 @@ quizzes.forEach((quiz) => {
 		if (!container.style.position) container.style.position = "relative";
 
 		// add dark overlay
-		const overlay = document.createElement("div");
+		const overlay = document.createElement("button");
 		overlay.id = "overlay";
 		document.body.appendChild(overlay);
 
-		// remove clicked button and add button to show description
-		button.remove();
-		const description = addButton("description", "quiz", "", document.body);
-		description.innerHTML = quiz.title + "<br>" + quiz.description + "<br>";
+		// add div to show description
+		// const description = addButton("description", "quiz", "", document.body);
+		const description = document.createElement("div");
+		description.id = "description";
+		description.className = "quiz";
+		description.innerHTML = quiz.title + "<br>" + quiz.description;
+		document.body.appendChild(description);
 
 		// add start quiz button
 		const startQuizButton = addButton(
@@ -72,8 +78,20 @@ quizzes.forEach((quiz) => {
 			window.location.reload();
 		});
 
-		// if description clicked
-		description.addEventListener("click", () => {
+		// // if description clicked
+		// description.addEventListener("click", () => {
+		// 	// remove overlay and description
+		// 	const overlay = document.getElementById("overlay");
+		// 	const description = document.getElementById("description");
+		// 	overlay.remove();
+		// 	description.remove();
+
+		// 	// re-add the button to the container
+		// 	container.appendChild(button);
+		// });
+
+		// if overlay clicked
+		overlay.addEventListener("click", () => {
 			// remove overlay and description
 			const overlay = document.getElementById("overlay");
 			const description = document.getElementById("description");
