@@ -1,3 +1,5 @@
+import { addVariant } from "../create/reusable.js";
+
 const container = document.querySelector(".container");
 const storage = JSON.parse(localStorage.getItem("storage"));
 const saveQuizButton = document.getElementById("saveQuizButton");
@@ -20,14 +22,14 @@ quizTitle.addEventListener('input', () => {
 });
 
 quizDescriptionInput.value = currentQuiz.description;
-
+let counter = 1;
 for (let question of currentQuiz.questions) {
     const questionTitle = question.text;
-
+    
     const create = document.createElement("div");
     create.className = "quizzesContainer";
     create.innerHTML = `<button class="material-symbols-outlined" id="deletequestion" class="deletequestion">delete</button>
-		<p class="questionNum">Запитання №</p>
+		<p class="questionNum">Запитання №${counter}</p>
 				<input type="text" class="questionText" placeholder="Текст питання" value = '${questionTitle}'/>
 				<p class="variant">Варіанти відповіді</p>
 				<style>
@@ -61,6 +63,37 @@ for (let question of currentQuiz.questions) {
         prev.before(optionVal);
         console.log(prev);
     }
+    counter++;
 }
+
+// додавання нового варіанту відповіді
+container.addEventListener('click', (el) => {
+    if (el.target.matches('#addquestion')) {
+       addVariant(counter); 
+       counter++;
+       console.log("ljhjkhkjjlkj");
+    };
+});
+
+container.addEventListener('click', (el) => {
+    //видалення запитання
+    if (el.target.matches('#deletequestion')) {
+        el.target.closest('.quizzesContainer').remove();
+        counter--;
+
+        let cuestionNum = document.querySelectorAll('.questionNum');
+        cuestionNum.forEach((value, index) => {
+            value.textContent = `Запитання №${index + 1}`;
+        });
+    };
+
+    let delOption = document.querySelectorAll('#deletevariant').length;
+    if (el.target.matches('#deletevariant') && delOption > 2) {
+        el.target.closest('label').remove();
+    }
+});
+
+
+
 
 // console.log(optionsCount);

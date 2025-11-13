@@ -72,20 +72,20 @@ container.addEventListener("click", function (el) {
 		el.target.closest(".quizzesContainer").remove();
 		counter--;
 
-		for (let i = 1; i < counter; i++) {
+		// for (let i = 1; i < counter; i++) {
 			let questionNum = document.querySelectorAll(".questionNum");
 
 			questionNum.forEach((num, index) => {
 				num.textContent = `Запитання № ${index + 1}`;
 			});
-		}
+		// }
 	}
 	if (el.target.matches("#deletevariant")) {
 		const thisContainer = el.target.closest(".quizzesContainer");
 
 		if (thisContainer.querySelectorAll(".optionText").length > 2) {
 			el.target.closest("label").remove();
-		}
+		};
 	}
 });
 
