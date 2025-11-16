@@ -3,7 +3,10 @@ document.addEventListener("DOMContentLoaded", () => {
 	const storage = JSON.parse(localStorage.getItem("storage")) || {};
 
 	const results = storage.results || [];
-	const latestResult = results[results.length - 1];
+	const latestResult = storage.selected;
+	if (storage.selected === undefined) {
+		latestResult = results[results.length - 1];
+	}
 
 	if (latestResult && storage.quizzes) {
 		const quiz = storage.quizzes.find((q) => q.title === latestResult.title);
