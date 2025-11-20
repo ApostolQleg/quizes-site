@@ -1,7 +1,7 @@
-import { addVariant } from "../create/reusable.js";
+import { storage } from "/components.js";
+import { addVariant } from "/create/reusable.js";
 
 const container = document.querySelector(".container");
-const storage = JSON.parse(localStorage.getItem("storage"));
 const saveQuizButton = document.getElementById("saveQuizButton");
 // перевірка який квіз натиснули для редагування
 const title = storage.selected.title;
@@ -10,13 +10,13 @@ const currentQuiz = storage.quizzes.find((quiz) => quiz.title === title);
 const quizTitle = document.querySelector(".quizTitle");
 const quizDescriptionInput = document.querySelector(".quizDescriptionInput");
 const optionsCount = currentQuiz.questions.length;
-const charCount = document.querySelector('.charCount');
+const charCount = document.querySelector(".charCount");
 
 quizTitle.value = currentQuiz.title;
 //counter quizTitle
 let quizTitleLenght = quizTitle.value.length;
 charCount.textContent = `${quizTitleLenght}/30`;
-quizTitle.addEventListener('input', () => {
+quizTitle.addEventListener("input", () => {
 	quizTitleLenght = quizTitle.value.length;
 	charCount.textContent = `${quizTitleLenght}/30`;
 });
@@ -24,11 +24,11 @@ quizTitle.addEventListener('input', () => {
 quizDescriptionInput.value = currentQuiz.description;
 let counter = 1;
 for (let question of currentQuiz.questions) {
-    const questionTitle = question.text;
-    
-    const create = document.createElement("div");
-    create.className = "quizzesContainer";
-    create.innerHTML = `<button class="material-symbols-outlined" id="deletequestion" class="deletequestion">delete</button>
+	const questionTitle = question.text;
+
+	const create = document.createElement("div");
+	create.className = "quizzesContainer";
+	create.innerHTML = `<button class="material-symbols-outlined" id="deletequestion" class="deletequestion">delete</button>
 		<p class="questionNum">Запитання №${counter}</p>
 				<input type="text" class="questionText" placeholder="Текст питання" value = '${questionTitle}'/>
 				<p class="variant">Варіанти відповіді</p>
@@ -39,13 +39,13 @@ for (let question of currentQuiz.questions) {
 				</style>
 				<!-- Тут будуть відображатися створені опитування -->
 				 <button class="addvariant" id="addvariant">+</button>`;
-    container.appendChild(create);
-    saveQuizButton.before(create);
-    for (let option of question.options) {
-        let prev = create.querySelector(".addvariant");
-        let optionVal = document.createElement("label");
-        optionVal.className = "options";
-        optionVal.innerHTML = `<label>
+	container.appendChild(create);
+	saveQuizButton.before(create);
+	for (let option of question.options) {
+		let prev = create.querySelector(".addvariant");
+		let optionVal = document.createElement("label");
+		optionVal.className = "options";
+		optionVal.innerHTML = `<label>
 					<input type="checkbox" name="option1" value="checked" class="isCorrect" /><input
 						type="text"
 						class="optionText"
@@ -54,46 +54,43 @@ for (let question of currentQuiz.questions) {
 					/>
                     <button class="material-symbols-outlined" id="deletevariant">delete</button>
 				</label>`;
-        // якщо потрібно, щоб option був вибраний
-        const checkbox = optionVal.querySelector(".isCorrect");
+		// якщо потрібно, щоб option був вибраний
+		const checkbox = optionVal.querySelector(".isCorrect");
 
-        if (option.isCorrect) {
-            checkbox.checked = true;
-        }
-        prev.before(optionVal);
-        console.log(prev);
-    }
-    counter++;
+		if (option.isCorrect) {
+			checkbox.checked = true;
+		}
+		prev.before(optionVal);
+		console.log(prev);
+	}
+	counter++;
 }
 
 // додавання нового варіанту відповіді
-container.addEventListener('click', (el) => {
-    if (el.target.matches('#addquestion')) {
-       addVariant(counter); 
-       counter++;
-       console.log("ljhjkhkjjlkj");
-    };
+container.addEventListener("click", (el) => {
+	if (el.target.matches("#addquestion")) {
+		addVariant(counter);
+		counter++;
+		console.log("ljhjkhkjjlkj");
+	}
 });
 
-container.addEventListener('click', (el) => {
-    //видалення запитання
-    if (el.target.matches('#deletequestion')) {
-        el.target.closest('.quizzesContainer').remove();
-        counter--;
+container.addEventListener("click", (el) => {
+	//видалення запитання
+	if (el.target.matches("#deletequestion")) {
+		el.target.closest(".quizzesContainer").remove();
+		counter--;
 
-        let cuestionNum = document.querySelectorAll('.questionNum');
-        cuestionNum.forEach((value, index) => {
-            value.textContent = `Запитання №${index + 1}`;
-        });
-    };
+		let cuestionNum = document.querySelectorAll(".questionNum");
+		cuestionNum.forEach((value, index) => {
+			value.textContent = `Запитання №${index + 1}`;
+		});
+	}
 
-    let delOption = document.querySelectorAll('#deletevariant').length;
-    if (el.target.matches('#deletevariant') && delOption > 2) {
-        el.target.closest('label').remove();
-    }
+	let delOption = document.querySelectorAll("#deletevariant").length;
+	if (el.target.matches("#deletevariant") && delOption > 2) {
+		el.target.closest("label").remove();
+	}
 });
-
-
-
 
 // console.log(optionsCount);

@@ -1,10 +1,10 @@
 export { test, addVariant };
 function test() {
-    console.log("This is a reusable function.");
-};
+	console.log("This is a reusable function.");
+}
 
 function addVariant(counter) {
-    const question = document.createElement("div");
+	const question = document.createElement("div");
 	saveQuizButton.before(question);
 	question.className = "quizzesContainer";
 	question.innerHTML = `
@@ -40,4 +40,4 @@ function addVariant(counter) {
 				 <button class="addvariant" id="addvariant">+</button>
 	`;
 	// counter++;
-};
+}

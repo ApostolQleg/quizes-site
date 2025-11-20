@@ -1,9 +1,9 @@
+import { storage } from "/components.js";
+
 document.addEventListener("DOMContentLoaded", () => {
 	const container = document.getElementById("container");
-	const storage = JSON.parse(localStorage.getItem("storage")) || {};
-
 	const results = storage.results || [];
-	const latestResult = storage.selected;
+	let latestResult = storage.selected;
 	if (storage.selected === undefined) {
 		latestResult = results[results.length - 1];
 	}
@@ -35,9 +35,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
 		const backButton = document.createElement("button");
 		backButton.className = "backButton";
-		backButton.textContent = "Back to Quizzes";
+		backButton.textContent = "Back to Results";
 		backButton.addEventListener("click", () => {
-			window.location.href = "../../";
+			window.location.href = "/results";
 		});
 		container.appendChild(backButton);
 	} else {

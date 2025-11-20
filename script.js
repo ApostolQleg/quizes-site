@@ -1,10 +1,15 @@
-const container = document.getElementById("container");
-const create = document.getElementById("create");
+import { storage, addDescriptionButton, loadDefaultTests } from "./components.js";
 
-// Load and create quiz buttons from localStorage
-storage = JSON.parse(localStorage.getItem("storage")) || {};
+// Load default tests if no storage exists
+loadDefaultTests();
+
+// DOM elements
+const container = document.getElementById("container");
+
+// Load quizzes from storage
 const quizzes = storage?.quizzes || [];
 
+// Create quiz buttons
 quizzes.forEach((quiz) => {
 	const button = document.createElement("button");
 	button.className = "quiz";
@@ -13,13 +18,6 @@ quizzes.forEach((quiz) => {
 
 	// button functionality
 	button.addEventListener("click", () => {
-		// remove clicked button from container
-		button.remove();
-
-		// Load the selected quiz
-		storage.selected = quiz;
-		localStorage.setItem("storage", JSON.stringify(storage));
-
 		// ensure the container is a positioning context
 		if (!container.style.position) container.style.position = "relative";
 
@@ -28,87 +26,39 @@ quizzes.forEach((quiz) => {
 		overlay.id = "overlay";
 		document.body.appendChild(overlay);
 
+		// if overlay clicked
+		overlay.addEventListener("click", () => {
+			overlay.remove();
+			description.remove();
+		});
+
 		// add div to show description
-		// const description = addButton("description", "quiz", "", document.body);
 		const description = document.createElement("div");
 		description.id = "description";
 		description.className = "quiz";
 		description.innerHTML = quiz.title + "<br>" + quiz.description;
 		document.body.appendChild(description);
 
-		// add start quiz button
-		const startQuizButton = addButton(
-			"start-quiz-button",
-			"description-button",
-			"Start Quiz",
-			description
-		);
+		// add buttons
+		const manageButton = addDescriptionButton("manage", "Manage");
+		const startButton = addDescriptionButton("start", "Start Quiz");
+		const deleteButton = addDescriptionButton("delete", "Delete");
 
-		// start quiz button functionality
-		startQuizButton.addEventListener("click", () => {
-			window.location.href = "/quiz";
-		});
-
-		// add manage quiz button
-		const manageQuizButton = addButton(
-			"manage-quiz-button",
-			"description-button",
-			"Manage",
-			description
-		);
-
-		// manage quiz button functionality
-		manageQuizButton.addEventListener("click", () => {
+		// buttons functionality
+		manageButton.addEventListener("click", () => {
 			window.location.href = "/manage";
 		});
 
-		// add delete quiz button
-		const deleteQuizButton = addButton(
-			"delete-quiz-button",
-			"description-button",
-			"Delete",
-			description
-		);
+		startButton.addEventListener("click", () => {
+			window.location.href = "/quiz";
+			storage.selected = quiz;
+			localStorage.setItem("storage", JSON.stringify(storage));
+		});
 
-		// delete quiz button functionality
-		deleteQuizButton.addEventListener("click", () => {
-			storage = JSON.parse(localStorage.getItem("storage"));
+		deleteButton.addEventListener("click", () => {
 			storage.quizzes = storage.quizzes.filter((q) => q.title !== quiz.title);
 			localStorage.setItem("storage", JSON.stringify(storage));
 			window.location.reload();
 		});
-
-		// // if description clicked
-		// description.addEventListener("click", () => {
-		// 	// remove overlay and description
-		// 	const overlay = document.getElementById("overlay");
-		// 	const description = document.getElementById("description");
-		// 	overlay.remove();
-		// 	description.remove();
-
-		// 	// re-add the button to the container
-		// 	container.appendChild(button);
-		// });
-
-		// if overlay clicked
-		overlay.addEventListener("click", () => {
-			// remove overlay and description
-			const overlay = document.getElementById("overlay");
-			const description = document.getElementById("description");
-			overlay.remove();
-			description.remove();
-
-			// re-add the button to the container
-			container.appendChild(button);
-		});
 	});
 });
-
-function addButton(id, className, text, parent) {
-	const button = document.createElement("button");
-	button.id = id;
-	button.className = className;
-	button.innerText = text;
-	parent.appendChild(button);
-	return button;
-}

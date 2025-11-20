@@ -1,3 +1,5 @@
+import { storage } from "/components.js";
+
 const addQuestion = document.getElementById("addquestion");
 const container = document.getElementById("container");
 const quizzesContainer = document.getElementById("quizzesContainer");
@@ -73,11 +75,11 @@ container.addEventListener("click", function (el) {
 		counter--;
 
 		// for (let i = 1; i < counter; i++) {
-			let questionNum = document.querySelectorAll(".questionNum");
+		let questionNum = document.querySelectorAll(".questionNum");
 
-			questionNum.forEach((num, index) => {
-				num.textContent = `Запитання № ${index + 1}`;
-			});
+		questionNum.forEach((num, index) => {
+			num.textContent = `Запитання № ${index + 1}`;
+		});
 		// }
 	}
 	if (el.target.matches("#deletevariant")) {
@@ -85,7 +87,7 @@ container.addEventListener("click", function (el) {
 
 		if (thisContainer.querySelectorAll(".optionText").length > 2) {
 			el.target.closest("label").remove();
-		};
+		}
 	}
 });
 
@@ -165,15 +167,15 @@ saveQuizButton.addEventListener("click", () => {
 		});
 
 		//додавання в локал сторедж
-		
+
 		if (!localStorageParse) {
 			localStorageNull.quizzes.push(question);
 			localStorage.setItem("storage", JSON.stringify(localStorageNull));
 		} else {
 			localStorageParse.quizzes.push(question);
 			localStorage.setItem("storage", JSON.stringify(localStorageParse));
-		};
-		window.location.href = '../';
+		}
+		window.location.href = "../";
 	} else {
 		alert("Заповни поля");
 	}

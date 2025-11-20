@@ -65,10 +65,14 @@
 // 		],
 // 	})
 // );
+
+import { storage } from "/components.js";
+
+// DOM elements
 const submitBtn = document.getElementById("submit");
 const container = document.getElementById("container");
 
-const storage = JSON.parse(localStorage.getItem("storage")) || {};
+// Load selected quiz from localStorage
 const selected = storage?.selected || {};
 
 const title = document.createElement("div");
@@ -102,13 +106,12 @@ selected.questions.forEach((question) => {
 	});
 });
 
-
 submitBtn.addEventListener("click", () => {
 	const answers = [];
 	selected.questions.forEach((question) => {
 		const selectedOptions = [];
 		question.options.forEach((option) => {
-			const optionInput = document.querySelector( 
+			const optionInput = document.querySelector(
 				`input[name="question-${question.text}"][value="${option.id}"]`
 			);
 			if (optionInput.checked) {
