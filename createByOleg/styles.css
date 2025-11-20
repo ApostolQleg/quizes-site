@@ -1,0 +1,6 @@
+@import "/templates/styles.css";
+
+#container {
+	display: grid;
+	gap: 20px;
+}
