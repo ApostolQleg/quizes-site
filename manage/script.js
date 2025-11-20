@@ -1,19 +1,18 @@
 import { storage } from "/components.js";
-import { addVariant } from "/create/reusable.js";
+import { addVariant, addOption } from "../create/reusable.js";
 
 const container = document.querySelector(".container");
 const saveQuizButton = document.getElementById("saveQuizButton");
 // перевірка який квіз натиснули для редагування
 const title = storage.selected.title;
 const currentQuiz = storage.quizzes.find((quiz) => quiz.title === title);
-//
 const quizTitle = document.querySelector(".quizTitle");
 const quizDescriptionInput = document.querySelector(".quizDescriptionInput");
 const optionsCount = currentQuiz.questions.length;
 const charCount = document.querySelector(".charCount");
 
 quizTitle.value = currentQuiz.title;
-//counter quizTitle
+
 let quizTitleLenght = quizTitle.value.length;
 charCount.textContent = `${quizTitleLenght}/30`;
 quizTitle.addEventListener("input", () => {
@@ -77,7 +76,7 @@ container.addEventListener("click", (el) => {
 
 container.addEventListener("click", (el) => {
 	//видалення запитання
-	if (el.target.matches("#deletequestion")) {
+	if (el.target.matches("#deletequestion") && counter > 2) {
 		el.target.closest(".quizzesContainer").remove();
 		counter--;
 
@@ -87,10 +86,19 @@ container.addEventListener("click", (el) => {
 		});
 	}
 
-	let delOption = document.querySelectorAll("#deletevariant").length;
-	if (el.target.matches("#deletevariant") && delOption > 2) {
-		el.target.closest("label").remove();
-	}
+	//видалення option
+	let thisContainer = el.target.closest(".quizzesContainer");
+    let delOption = thisContainer.querySelectorAll('#deletevariant').length;
+    if (el.target.matches('#deletevariant') && delOption > 2) {
+
+        el.target.closest('label').remove();
+        
+    };
+
+    //додавання option
+    if (el.target.matches('.addvariant')) {
+       addOption(el);
+	};
 });
 
 // console.log(optionsCount);
