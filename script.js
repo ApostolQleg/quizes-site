@@ -1,4 +1,4 @@
-import { storage, addDescriptionButton, loadDefaultTests, setSelectedQuiz } from "./components.js";
+import { storage, addDescriptionButton, loadDefaultTests } from "./components.js";
 loadDefaultTests();
 const container = document.getElementById("container");
 
@@ -39,8 +39,5 @@ quizzes.forEach((quiz) => {
 		addDescriptionButton("manage", "Manage", "/manage", quiz);
 		addDescriptionButton("start", "Start Quiz", "/quiz", quiz);
 		addDescriptionButton("delete", "Delete", "/del", quiz);
-
-		// return selected quiz
-		setSelectedQuiz(quiz);
 	});
 });

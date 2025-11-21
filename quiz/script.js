@@ -66,7 +66,7 @@
 // 	})
 // );
 
-import { storage, selected } from "/components.js";
+import { storage, selectedQuiz } from "/components.js";
 
 // DOM elements
 const submitBtn = document.getElementById("submit");
@@ -74,6 +74,8 @@ const container = document.getElementById("container");
 
 // Load selected quiz from localStorage
 // const selected = storage?.selected || {};
+const selected = selectedQuiz.value;
+console.log("Selected Quiz: ", JSON.stringify(selected));
 
 const title = document.createElement("div");
 title.className = "question-block"; //створення title
