@@ -1,2 +1,2 @@
-import { storage } from "/components.js";
+import { storage, selectedQuiz, addQuizElement } from "/components.js";
 
