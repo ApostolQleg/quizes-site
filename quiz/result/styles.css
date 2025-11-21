@@ -1,24 +1,2 @@
 @import "/templates/styles.css";
-
-.toolbar {
-	visibility: hidden;
-}
-
-.title {
-	color: white;
-	margin: 20px 0;
-}
-
-#title {
-	font-size: clamp(20px, 4vw, 40px);
-	text-align: center;
-}
-
-.options {
-	display: grid;
-}
-
-.option-text {
-	color: white;
-	margin-left: 10px;
-}
+@import "/quiz/styles.css";

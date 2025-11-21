@@ -4,7 +4,8 @@ const container = document.getElementById("container");
 
 const selected = selectedQuiz.value;
 
-addQuizElement("div", "title", selected.title, container);
+const title = addQuizElement("div", "title", selected.title, container);
+title.id = "title";
 
 addQuizElement(
 	"div",
