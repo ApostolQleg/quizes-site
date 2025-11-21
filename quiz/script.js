@@ -30,7 +30,6 @@ submitBtn.addEventListener("click", () => {
 	selected.questions.forEach((question) => {
 		const selectedOptions = [];
 		question.options.forEach((option) => {
-			console.log(`question: ${question.text}, option: ${option.text}`);
 			const optionInput = document.querySelector(
 				`input[name="q-${CSS.escape(question.text)}"][value="${option.id}"]`
 			);
