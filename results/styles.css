@@ -7,17 +7,23 @@
 	justify-content: center;
 }
 .quiz {
-	background-color: rgb(233, 14, 178);
-	color: rgb(35, 15, 35);
-	border: none;
-	border-radius: 5%;
-	aspect-ratio: 1;
-	image-rendering: pixelated;
-	height: 20vw;
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
 	align-items: center;
+	aspect-ratio: 1;
+	background-color: rgb(233, 14, 178);
+	border: none;
+	border-radius: 20px;
+	color: rgb(35, 15, 35);
 	font-family: "Pixelify Sans", sans-serif;
-	font-size: clamp(15px, 2vw, 30px);
+	font-size: 23px;
+	image-rendering: pixelated;
+	justify-content: center;
+	max-height: 400px;
+	width: 20vw;
+	z-index: 1;
+}
+
+@media screen and (max-width: 768px) {
+	.quiz {
+		font-size: 13px;
+	}
 }

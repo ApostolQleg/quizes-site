@@ -1,50 +1,37 @@
 @import "/templates/styles.css";
 
-.question-block {
-	background-color: white;
-	width: 90%;
-	text-align: center;
-}
-
 .toolbar {
 	visibility: hidden;
 }
 
-.submit {
-	background-color: rgb(100, 50, 100);
+.title {
 	color: white;
+	margin: 20px 0;
+}
+
+#title {
+	font-size: clamp(20px, 4vw, 40px);
+	text-align: center;
+}
+
+.options {
+	display: grid;
+}
+
+.option-text {
+	color: white;
+	margin-left: 10px;
+}
+
+.submit {
+	background-color: rgba(0, 123, 255, 1);
 	border: none;
+	border-radius: 10px;
+	color: white;
+	cursor: pointer;
+	font-size: clamp(10px, 4vw, 20px);
+	margin: 10px auto;
 	padding: 10px 20px;
-	border-radius: 5px;
-	font-size: 16px;
-	margin-right: 5%;
-	position: absolute;
-	bottom: 130px; /* паміняй */
+	display: block;
 }
-
-.quiz-name {
-	background: white;
-	text-align: center;
-	font-size: clamp(10px, 4vw, 20px);
-	margin-bottom: 10px;
-	font-family: "Stalinist One", sans-serif;
-}
-
-.total {
-	background: white;
-	text-align: center;
-	font-size: clamp(10px, 4vw, 20px);
-	margin-bottom: 10px;
-	font-family: "Stalinist One", sans-serif;
-}
-
-.questionDiv {
-	background: white;
-	margin: 10px;
-}
-
-.optionsLable {
-	background: white;
-}
-
 /* Я додав рандомні стилі, просто щоб бачити як це виглядає */

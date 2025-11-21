@@ -1,5 +1,9 @@
 import { storage, addDescriptionButton, loadDefaultTests } from "./components.js";
+
+// Initialize storage if not present
 loadDefaultTests();
+
+// DOM elements
 const container = document.getElementById("container");
 
 // Load quizzes from storage
@@ -15,7 +19,7 @@ quizzes.forEach((quiz) => {
 	// button functionality
 	button.addEventListener("click", () => {
 		// ensure the container is a positioning context
-		if (!container.style.position) container.style.position = "relative";
+		!container.style.position ? container.style.position = "relative" : null;
 
 		// add dark overlay
 		const overlay = document.createElement("button");

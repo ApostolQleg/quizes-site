@@ -1,42 +1,24 @@
-@import "../templates/styles.css";
+@import "/templates/styles.css";
 
-.backButton {
-	background-color: rgb(100, 50, 100);
+.toolbar {
+	visibility: hidden;
+}
+
+.title {
 	color: white;
-	border: none;
-	padding: 10px 20px;
-	border-radius: 5px;
-	font-size: 16px;
-	position: relative;
-	margin-right: 5%;
-	/* top: -78px; */
-	text-decoration: none;
-}
-.titleElementDiv {
-    text-align: center;
-    background-color: white;
-}
-.summaryElementDiv {
-    text-align: center;
-    background-color: white;
+	margin: 20px 0;
 }
 
-.resultTitle {
-    font-size: 24px;
-    font-weight: bold;
-    margin-bottom: 10px;
-    color: white;
+#title {
+	font-size: clamp(20px, 4vw, 40px);
+	text-align: center;
 }
 
-.deleteBtn {
-	background-color: red;
+.options {
+	display: grid;
+}
+
+.option-text {
 	color: white;
-	border: none;
-	padding: 10px 20px;
-	border-radius: 5px;
-	font-size: 16px;
-	position: relative;
-	margin-top: 20px;
-	text-decoration: none;
-	cursor: pointer;
+	margin-left: 10px;
 }

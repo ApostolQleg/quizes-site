@@ -23,23 +23,45 @@ export function addDescriptionButton(id, text, ref, quiz) {
 	button.className = "description-button";
 	button.innerText = text;
 	button.onclick = () => {
-		localStorage.setItem("storage", JSON.stringify(storage));
-
 		if (ref === "/del") {
 			storage.quizzes = storage.quizzes.filter((q) => q.title !== quiz.title);
 			localStorage.setItem("storage", JSON.stringify(storage));
 			window.location.reload();
 		} else {
 			selectedQuiz.value = quiz;
-			console.log("Selected Quiz set to: ", JSON.stringify(selectedQuiz.value));
 			window.location.href = ref;
 		}
 	};
 	description.appendChild(button);
-	return button;
+}
+
+export function addQuizElement(element, className, innerHTML, parent, value, name) {
+	if (element === "div") {
+		const divElement = document.createElement("div");
+		divElement.className = className;
+		divElement.innerHTML = innerHTML;
+		parent.appendChild(divElement);
+		return divElement;
+	} else if (element === "input") {
+		const inputElement = document.createElement("input");
+		inputElement.type = "checkbox";
+		inputElement.name = `q-${name.text}`;
+		inputElement.value = value.id;
+		parent.appendChild(inputElement);
+		return inputElement;
+	} else if (element === "label") {
+		const labelElement = document.createElement("label");
+		labelElement.className = className;
+		labelElement.innerHTML = innerHTML;
+		parent.appendChild(labelElement);
+		return labelElement;
+	}
 }
 
 // functions related to storage
 export function loadDefaultTests() {
-	!storage ? localStorage.setItem("storage", JSON.stringify(tests)) : null;
+	if (!storage) {
+		localStorage.setItem("storage", JSON.stringify(tests));
+		window.location.reload();
+	}
 }

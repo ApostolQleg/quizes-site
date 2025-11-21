@@ -1,4 +1,4 @@
-import { storage } from "/components.js";
+import { storage, selectedQuiz } from "/components.js";
 
 // DOM elements
 const container = document.getElementById("container");
@@ -26,7 +26,7 @@ results.forEach((result) => {
 	// button functionality
 	button.addEventListener("click", () => {
 		// Load the selected result
-		storage.selected = result;
+		selectedQuiz.value = result;
 		localStorage.setItem("storage", JSON.stringify(storage));
 		window.location.href = "/quiz/result";
 	});
