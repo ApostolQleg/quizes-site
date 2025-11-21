@@ -1,0 +1,43 @@
+<!-- Структура Влада -->
+			<div class="quizName">
+				<input type="text" class="quizTitle" placeholder="Назва опитування" />
+				<p class="charCount">0/30</p>
+				<button class="reset">очистити</button>
+			</div>
+			<input
+				type="text"
+				class="quizDescriptionInput"
+				placeholder="Короткий опис опитування"
+			/>
+			<button class="addquestion" id="addquestion">+</button>
+
+			<!-- Перший елемент, який буде клонуватися  -->
+			<div class="quizzesContainer">
+				<button class="material-symbols-outlined" id="deletequestion">delete</button>
+				<p class="questionNum">Запитання № 1</p>
+				<input type="text" class="questionText" placeholder="Текст питання" />
+				<p class="variant">Варіанти відповіді</p>
+
+				<label>
+					<input type="checkbox" name="option1" value="1" class="isCorrect" /><input
+						type="text"
+						class="optionText"
+						placeholder="Варіант відповіді"
+						value="Так"
+					/>
+					<button class="material-symbols-outlined" id="deletevariant">delete</button>
+				</label>
+				<label>
+					<input type="checkbox" name="option1" value="1" class="isCorrect" /><input
+						type="text"
+						class="optionText"
+						placeholder="Варіант відповіді"
+						value="Ні"
+					/>
+					<button class="material-symbols-outlined" id="deletevariant">delete</button>
+				</label>
+
+				<button class="addvariant" id="addvariant">+</button>
+			</div>
+
+			<button class="saveQuizButton" id="saveQuizButton">Зберегти опитування</button>

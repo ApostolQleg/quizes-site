@@ -1,9 +1,5 @@
-import { storage, addDescriptionButton, loadDefaultTests } from "./components.js";
-
-// Load default tests if no storage exists
+import { storage, addDescriptionButton, loadDefaultTests, setSelectedQuiz } from "./components.js";
 loadDefaultTests();
-
-// DOM elements
 const container = document.getElementById("container");
 
 // Load quizzes from storage
@@ -40,25 +36,11 @@ quizzes.forEach((quiz) => {
 		document.body.appendChild(description);
 
 		// add buttons
-		const manageButton = addDescriptionButton("manage", "Manage");
-		const startButton = addDescriptionButton("start", "Start Quiz");
-		const deleteButton = addDescriptionButton("delete", "Delete");
+		addDescriptionButton("manage", "Manage", "/manage", quiz);
+		addDescriptionButton("start", "Start Quiz", "/quiz", quiz);
+		addDescriptionButton("delete", "Delete", "/del", quiz);
 
-		// buttons functionality
-		manageButton.addEventListener("click", () => {
-			window.location.href = "/manage";
-		});
-
-		startButton.addEventListener("click", () => {
-			window.location.href = "/quiz";
-			storage.selected = quiz;
-			localStorage.setItem("storage", JSON.stringify(storage));
-		});
-
-		deleteButton.addEventListener("click", () => {
-			storage.quizzes = storage.quizzes.filter((q) => q.title !== quiz.title);
-			localStorage.setItem("storage", JSON.stringify(storage));
-			window.location.reload();
-		});
+		// return selected quiz
+		setSelectedQuiz(quiz);
 	});
 });
