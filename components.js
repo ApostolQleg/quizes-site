@@ -16,11 +16,9 @@ export const selectedQuiz = {
 	},
 };
 
-// DOM related functions
-export function addDescriptionButton(id, text, ref, quiz) {
-	const description = document.getElementById("description");
-	const button = addQuizElement("button", "description-button", text, description);
-	button.id = id; // я додав id тимчасово, коли Бодя переробить по умному, можна буде видалить
+export function addDescriptionButton(text, ref, quiz) {
+	const wrapper = document.getElementsByClassName("description-buttons")[0];
+	const button = addQuizElement("button", "description-button", text, wrapper);
 	button.onclick = () => {
 		if (ref === "/del") {
 			storage.quizzes = storage.quizzes.filter((q) => q.title !== quiz.title);
