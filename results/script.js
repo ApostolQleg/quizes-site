@@ -1,4 +1,4 @@
-import { storage, selectedQuiz } from "/components.js";
+import { storage, selectedQuiz, addQuizElement } from "/components.js";
 
 // DOM elements
 const container = document.getElementById("container");
@@ -7,10 +7,8 @@ const container = document.getElementById("container");
 const results = storage?.results || [];
 
 results.forEach((result) => {
-	const date = new Date(result.timestamp);
-
-	const formattedDateTime = date.toLocaleDateString("uk-UA", {
-		//date and time formatting
+	// Format date and time
+	const formattedDateTime = new Date(result.timestamp).toLocaleDateString("uk-UA", {
 		month: "2-digit",
 		day: "numeric",
 		hour: "2-digit",
@@ -18,16 +16,16 @@ results.forEach((result) => {
 		hour12: false,
 	});
 
-	const button = document.createElement("button");
-	button.className = "quiz";
-	button.innerHTML = result.title + "<p>" + formattedDateTime;
-	container.appendChild(button);
+	// constant for button text
+	const buttonText = result.title + "<p>" + formattedDateTime + "</p>";
+
+	// Create button element
+	const button = addQuizElement("button", container, "quiz", buttonText);
 
 	// button functionality
 	button.addEventListener("click", () => {
 		// Load the selected result
 		selectedQuiz.value = result;
-		localStorage.setItem("storage", JSON.stringify(storage));
 		window.location.href = "/quiz/result";
 	});
 });

@@ -18,7 +18,7 @@ export const selectedQuiz = {
 
 export function addDescriptionButton(text, ref, quiz) {
 	const wrapper = document.getElementsByClassName("description-buttons")[0];
-	const button = addQuizElement("button", "description-button", text, wrapper);
+	const button = addQuizElement("button", wrapper, "description-button", text);
 	button.onclick = () => {
 		if (ref === "/del") {
 			storage.quizzes = storage.quizzes.filter((q) => q.title !== quiz.title);
@@ -31,10 +31,10 @@ export function addDescriptionButton(text, ref, quiz) {
 	};
 }
 
-export function addQuizElement(element, className, valueOrHTML, parent) {
+export function addQuizElement(element, parent, className, valueOrHTML = "", inpType = "checkbox") {
 	const newElement = document.createElement(element);
 	if (element === "input") {
-		newElement.type = "checkbox";
+		newElement.type = inpType;
 		newElement.name = `q-${className.text}`;
 		newElement.value = valueOrHTML.id;
 	} else {

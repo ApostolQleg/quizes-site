@@ -16,7 +16,7 @@ quizzes.forEach((quiz) => {
 	const descText = quiz.title + "<br>" + quiz.description;
 
 	// create button
-	const button = addQuizElement("button", "quiz", quizText, container);
+	const button = addQuizElement("button", container, "quiz", quizText);
 
 	// button functionality
 	button.addEventListener("click", () => {
@@ -24,7 +24,7 @@ quizzes.forEach((quiz) => {
 		!container.style.position ? (container.style.position = "relative") : null;
 
 		// create div to show description
-		const description = addQuizElement("div", "quiz description", descText, document.body);
+		const description = addQuizElement("div", document.body, "quiz description", descText);
 
 		// create dark overlay
 		const overlay = document.createElement("button");
@@ -38,7 +38,7 @@ quizzes.forEach((quiz) => {
 		});
 
 		// create wrapper for buttons
-		const wrapper = addQuizElement("div", "description-buttons", "", description);
+		addQuizElement("div", description, "description-buttons");
 
 		// create function buttons
 		addDescriptionButton("Manage", "/manage", quiz);

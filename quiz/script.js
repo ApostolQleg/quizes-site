@@ -8,19 +8,19 @@ const submitBtn = document.getElementsByClassName("submit")[0];
 const selected = selectedQuiz.value;
 
 // create title element
-addQuizElement("div", "title main", selected.title, container);
+addQuizElement("div", container, "title main", selected.title);
 
 selected.questions.forEach((question) => {
 	// create question title element
-	addQuizElement("div", "title", question.text, container);
+	addQuizElement("div", container, "title", question.text);
 
 	// create options container
-	const options = addQuizElement("div", "options", "", container);
+	const options = addQuizElement("div", container, "options");
 
 	question.options.forEach((option) => {
-		const optionElement = addQuizElement("div", "option", "", options);
-		addQuizElement("input", question, option, optionElement);
-		addQuizElement("label", "option-text", option.text, optionElement);
+		const optionElement = addQuizElement("div", options, "option");
+		addQuizElement("input", optionElement, question, option);
+		addQuizElement("label", optionElement, "option-text", option.text);
 	});
 });
 

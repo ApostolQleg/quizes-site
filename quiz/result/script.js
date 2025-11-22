@@ -10,7 +10,7 @@ const selected = selectedQuiz.value;
 const resultText = `Your result: ${selected.summary} / ${selected.answers.length}`;
 
 // create title element
-addQuizElement("div", "title main", selected.title, container);
+addQuizElement("div", container, "title main", selected.title);
 
 // create summary element
-addQuizElement("div", "title", resultText, container);
+addQuizElement("div", container, "title", resultText);
