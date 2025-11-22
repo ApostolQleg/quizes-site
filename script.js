@@ -1,4 +1,4 @@
-import { storage, addDescriptionButton, loadDefaultTests } from "./components.js";
+import { storage, addDescriptionButton, addQuizElement, loadDefaultTests } from "./components.js";
 
 // Initialize storage if not present
 loadDefaultTests();
@@ -11,17 +11,23 @@ const quizzes = storage?.quizzes || [];
 
 // Create quiz buttons
 quizzes.forEach((quiz) => {
-	const button = document.createElement("button");
-	button.className = "quiz";
-	button.innerHTML = quiz.title + "<br>Questions: " + quiz.questions.length;
-	container.appendChild(button);
+	// constants of text
+	const quizText = quiz.title + "<br>Questions: " + quiz.questions.length;
+	const descriptionText = quiz.title + "<br>" + quiz.description;
+
+	// create button
+	const button = addQuizElement("button", "quiz", quizText, container);
 
 	// button functionality
 	button.addEventListener("click", () => {
 		// ensure the container is a positioning context
-		!container.style.position ? container.style.position = "relative" : null;
+		!container.style.position ? (container.style.position = "relative") : null;
 
-		// add dark overlay
+		// create div to show description
+		const description = addQuizElement("div", "quiz", descriptionText, document.body);
+		description.id = "description";
+
+		// create dark overlay
 		const overlay = document.createElement("button");
 		overlay.id = "overlay";
 		document.body.appendChild(overlay);
@@ -32,14 +38,7 @@ quizzes.forEach((quiz) => {
 			description.remove();
 		});
 
-		// add div to show description
-		const description = document.createElement("div");
-		description.id = "description";
-		description.className = "quiz";
-		description.innerHTML = quiz.title + "<br>" + quiz.description;
-		document.body.appendChild(description);
-
-		// add buttons
+		// create function buttons
 		addDescriptionButton("manage", "Manage", "/manage", quiz);
 		addDescriptionButton("start", "Start Quiz", "/quiz", quiz);
 		addDescriptionButton("delete", "Delete", "/del", quiz);

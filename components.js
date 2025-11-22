@@ -18,10 +18,9 @@ export const selectedQuiz = {
 
 // DOM related functions
 export function addDescriptionButton(id, text, ref, quiz) {
-	const button = document.createElement("button");
+	const description = document.getElementById("description");
+	const button = addQuizElement("button", "description-button", text, description);
 	button.id = id; // я додав id тимчасово, коли Бодя переробить по умному, можна буде видалить
-	button.className = "description-button";
-	button.innerText = text;
 	button.onclick = () => {
 		if (ref === "/del") {
 			storage.quizzes = storage.quizzes.filter((q) => q.title !== quiz.title);
@@ -32,18 +31,17 @@ export function addDescriptionButton(id, text, ref, quiz) {
 			window.location.href = ref;
 		}
 	};
-	description.appendChild(button);
 }
 
 export function addQuizElement(element, className, valueOrHTML, parent) {
 	const newElement = document.createElement(element);
-	if (element === "div" || element === "label") {
-		newElement.className = className;
-		newElement.innerHTML = valueOrHTML;
-	} else if (element === "input") {
+	if (element === "input") {
 		newElement.type = "checkbox";
 		newElement.name = `q-${className.text}`;
 		newElement.value = valueOrHTML.id;
+	} else {
+		newElement.className = className;
+		newElement.innerHTML = valueOrHTML;
 	}
 	parent.appendChild(newElement);
 	return newElement;
