@@ -17,7 +17,7 @@ results.forEach((result) => {
 	});
 
 	// constant for button text
-	const buttonText = result.title + "<p>" + formattedDateTime + "</p>";
+	const buttonText = result.title + "<br>" + formattedDateTime;
 
 	// Create button element
 	const button = addQuizElement("button", container, "quiz", buttonText);

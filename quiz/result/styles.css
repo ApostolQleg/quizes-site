@@ -4,3 +4,11 @@
 .toolbar {
 	visibility: visible;
 }
+
+.selected {
+	background-color: red;
+}
+
+.correct {
+	background-color: green;
+}

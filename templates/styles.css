@@ -130,7 +130,7 @@ footer {
 /* for piskas cursors */
 button,
 a,
-input[type="checkbox"] {
+input[type="radio"] {
 	&,
 	& * {
 		cursor: var(--pointer-cursor);
