@@ -16,6 +16,7 @@ export const selectedQuiz = {
 	},
 };
 
+// functions related to adding elements
 export function addDescriptionButton(text, ref, quiz) {
 	const wrapper = document.getElementsByClassName("description-buttons")[0];
 	const button = addQuizElement("button", wrapper, "description-button", text);
@@ -31,16 +32,25 @@ export function addDescriptionButton(text, ref, quiz) {
 	};
 }
 
-export function addQuizElement(element, parent, className, valueOrHTML = "", inpType = "checkbox") {
+export function addQuizElement(element, parent, className = "", valueOrHTML = "") {
 	const newElement = document.createElement(element);
 	if (element === "input") {
-		newElement.type = inpType;
+		newElement.type = "checkbox";
 		newElement.name = `q-${className.text}`;
 		newElement.value = valueOrHTML.id;
 	} else {
 		newElement.className = className;
 		newElement.innerHTML = valueOrHTML;
 	}
+	parent.appendChild(newElement);
+	return newElement;
+}
+
+export function addInputElement(parent, className, placeholder = "") {
+	const newElement = document.createElement("input");
+	newElement.className = className;
+	newElement.type = "text";
+	newElement.placeholder = placeholder;
 	parent.appendChild(newElement);
 	return newElement;
 }

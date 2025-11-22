@@ -62,6 +62,17 @@ footer {
 	left: 10px;
 }
 
+.button {
+	width: fit-content;
+	background-color: rgb(255, 0, 98);
+	color: white;
+	border: none;
+	padding: 5px 10px;
+	border-radius: 5px;
+	font-size: 16px;
+	font-family: "Pixelify Sans", sans-serif;
+}
+
 .backButton {
 	margin-right: 5%;
 	position: absolute;

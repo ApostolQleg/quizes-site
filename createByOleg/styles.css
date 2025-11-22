@@ -1,2 +1,75 @@
 @import "/templates/styles.css";
 
+.container {
+	display: flex;
+	flex-direction: column;
+	gap: 30px;
+}
+
+.question-container {
+	min-height: 100px;
+	background-color: rgb(205, 138, 205);
+	padding: 10px 20px;
+	border-radius: 8px;
+	position: relative;
+	gap: 10px;
+	max-width: 800px;
+}
+
+.question-text-wrapper {
+	flex-direction: row;
+	justify-content: space-between;
+}
+
+.answers-container {
+	gap: 5px;
+}
+
+.answer-container {
+	flex-direction: row;
+	gap: 5px;
+}
+
+.title-container {
+	flex-direction: row;
+	gap: 10px;
+}
+
+.input {
+	width: fit-content;
+	border: none;
+	background-color: transparent;
+	text-align: left;
+	border-bottom: 2px solid lightgray;
+	outline: none;
+	color: white;
+	font-size: 24px;
+	font-family: "Pixelify Sans", sans-serif;
+}
+
+.description {
+	width: 800px;
+	font-size: 18px;
+	border: 2px solid lightgray;
+}
+
+.question-text {
+	color: black;
+	font-size: 20px;
+}
+
+.answer-text {
+	border: none;
+	color: black;
+	font-size: 18px;
+}
+
+.input.answer-text {
+	border: 2px solid lightgray;
+}
+
+.char-count {
+	font-size: 20px;
+	color: white;
+	margin: 5px;
+}
