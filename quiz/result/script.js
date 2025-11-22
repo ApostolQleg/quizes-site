@@ -1,15 +1,16 @@
 import { selectedQuiz, addQuizElement } from "/components.js";
 
+// DOM elements
 const container = document.getElementById("container");
 
+// Load selected quiz
 const selected = selectedQuiz.value;
 
-const title = addQuizElement("div", "title", selected.title, container);
-title.id = "title";
+// result text
+const resultText = `Your result: ${selected.summary} / ${selected.answers.length}`;
 
-addQuizElement(
-	"div",
-	"title",
-	`Your result: ${selected.summary} / ${selected.answers.length}`,
-	container
-);
+// create title element
+addQuizElement("div", "title main", selected.title, container);
+
+// create summary element
+addQuizElement("div", "title", resultText, container);
