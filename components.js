@@ -16,6 +16,9 @@ export const selectedQuiz = {
 	},
 };
 
+// Initialize storage if not present
+loadDefaultTests();
+
 // functions related to adding elements
 export function addQuizElement(
 	element,

@@ -1,7 +1,4 @@
-import { storage, addDescriptionButton, addQuizElement, loadDefaultTests } from "./components.js";
-
-// Initialize storage if not present
-loadDefaultTests();
+import { storage, addDescriptionButton, addQuizElement} from "./components.js";
 
 // DOM elements
 const container = document.getElementById("container");
