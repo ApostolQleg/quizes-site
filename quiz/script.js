@@ -8,8 +8,7 @@ const submitBtn = document.getElementsByClassName("submit")[0];
 const selected = selectedQuiz.value;
 
 // create title element
-const title = addQuizElement("div", "title", selected.title, container);
-title.id = "title";
+addQuizElement("div", "title main", selected.title, container);
 
 selected.questions.forEach((question) => {
 	// create question title element
@@ -20,18 +19,19 @@ selected.questions.forEach((question) => {
 
 	question.options.forEach((option) => {
 		const optionElement = addQuizElement("div", "option", "", options);
-		addQuizElement("input", option, question, optionElement);
+		addQuizElement("input", question, option, optionElement);
 		addQuizElement("label", "option-text", option.text, optionElement);
 	});
 });
 
 submitBtn.addEventListener("click", () => {
+	// gather answers
 	const answers = [];
 	selected.questions.forEach((question) => {
 		const selectedOptions = [];
 		question.options.forEach((option) => {
 			const optionInput = document.querySelector(
-				`input[name="q-${CSS.escape(question.text)}"][value="${option.id}"]`
+				`input[name="q-${CSS.escape(question.text)}"][value="${CSS.escape(option.id)}"]`
 			);
 			if (optionInput.checked) {
 				selectedOptions.push(option.id);
@@ -40,6 +40,7 @@ submitBtn.addEventListener("click", () => {
 		answers.push(selectedOptions);
 	});
 
+	// calculate summary
 	let summary = 0;
 	selected.questions.forEach((question, qIndex) => {
 		const correctOptionIds = question.options
@@ -56,6 +57,7 @@ submitBtn.addEventListener("click", () => {
 		}
 	});
 
+	// create result object
 	const result = {
 		timestamp: new Date().toISOString(),
 		title: selected.title,
@@ -63,10 +65,11 @@ submitBtn.addEventListener("click", () => {
 		answers: answers,
 	};
 
+	// store result
 	selectedQuiz.value = result;
-
 	storage.results.push(result);
 	localStorage.setItem("storage", JSON.stringify(storage));
 
+	// redirect to result page
 	window.location.href = "/quiz/result";
 });
