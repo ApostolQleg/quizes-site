@@ -35,27 +35,18 @@ export function addDescriptionButton(id, text, ref, quiz) {
 	description.appendChild(button);
 }
 
-export function addQuizElement(element, className, innerHTML, parent, value, name) {
-	if (element === "div") {
-		const divElement = document.createElement("div");
-		divElement.className = className;
-		divElement.innerHTML = innerHTML;
-		parent.appendChild(divElement);
-		return divElement;
+export function addQuizElement(element, className, valueOrHTML, parent) {
+	const newElement = document.createElement(element);
+	if (element === "div" || element === "label") {
+		newElement.className = className;
+		newElement.innerHTML = valueOrHTML;
 	} else if (element === "input") {
-		const inputElement = document.createElement("input");
-		inputElement.type = "checkbox";
-		inputElement.name = `q-${name.text}`;
-		inputElement.value = value.id;
-		parent.appendChild(inputElement);
-		return inputElement;
-	} else if (element === "label") {
-		const labelElement = document.createElement("label");
-		labelElement.className = className;
-		labelElement.innerHTML = innerHTML;
-		parent.appendChild(labelElement);
-		return labelElement;
+		newElement.type = "checkbox";
+		newElement.name = `q-${className.text}`;
+		newElement.value = valueOrHTML.id;
 	}
+	parent.appendChild(newElement);
+	return newElement;
 }
 
 // functions related to storage

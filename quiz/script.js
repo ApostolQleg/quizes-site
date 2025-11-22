@@ -20,7 +20,7 @@ selected.questions.forEach((question) => {
 
 	question.options.forEach((option) => {
 		const optionElement = addQuizElement("div", "option", "", options);
-		addQuizElement("input", "option", "", optionElement, option, question);
+		addQuizElement("input", option, question, optionElement);
 		addQuizElement("label", "option-text", option.text, optionElement);
 	});
 });
