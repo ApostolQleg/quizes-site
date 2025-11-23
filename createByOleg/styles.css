@@ -79,3 +79,9 @@
 	flex-direction: column;
 	gap: 15px;
 }
+
+.create-quiz {
+	margin-top: auto;
+	align-self: center;
+	width: 100%;
+}

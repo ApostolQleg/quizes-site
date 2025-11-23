@@ -1,4 +1,10 @@
-import { storage, addQuizElement, addInputElement, addQuestionElement } from "/components.js";
+import {
+	storage,
+	addQuizElement,
+	addInputElement,
+	addQuestionElement,
+	updateQuestionNumbers,
+} from "/components.js";
 
 // DOM elements
 const container = document.getElementById("container");
@@ -20,6 +26,7 @@ const addQuestionBtn = addQuizElement("button", container, "button add-question"
 // add question button functionality
 addQuestionBtn.onclick = () => {
 	addQuestionElement(wrapper);
+	updateQuestionNumbers(wrapper);
 };
 
 // create wrapper to hold questions
@@ -27,6 +34,7 @@ const wrapper = addQuizElement("div", container, "questions-wrapper");
 
 // add first question by default
 addQuestionElement(wrapper);
+updateQuestionNumbers(wrapper);
 
 // create button to submit quiz
 addQuizElement("button", container, "button create-quiz", "Створити вікторину");

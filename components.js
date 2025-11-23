@@ -96,12 +96,7 @@ export function addQuestionElement(parent) {
 	);
 
 	// create elements inside question text wrapper
-	addQuizElement(
-		"label",
-		questionTextWrapper,
-		"question-text",
-		`Питання ${parent.children.length}`
-	);
+	addQuizElement("label", questionTextWrapper, "question-text");
 
 	// create delete question button
 	const deleteQuestionBtn = addQuizElement(
@@ -114,6 +109,7 @@ export function addQuestionElement(parent) {
 	// delete question functionality
 	deleteQuestionBtn.onclick = () => {
 		questionContainer.remove();
+		updateQuestionNumbers(parent);
 	};
 
 	// create input for question text
@@ -145,6 +141,15 @@ export function addQuestionElement(parent) {
 	addAnswerButton.onclick = () => {
 		addAnswerElement(answersContainer);
 	};
+}
+
+// something specific for updating question numbers in createByOleg
+export function updateQuestionNumbers(parent) {
+	const questionContainers = parent.querySelectorAll(".question-container");
+	questionContainers.forEach((container, index) => {
+		const questionLabel = container.querySelector(".question-text");
+		questionLabel.textContent = `Питання №${index + 1}`;
+	});
 }
 
 // functions related to storage
