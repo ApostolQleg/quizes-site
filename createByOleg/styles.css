@@ -21,11 +21,11 @@
 	justify-content: space-between;
 }
 
-.answers-container {
+.options-container {
 	gap: 5px;
 }
 
-.answer-container {
+.option-container {
 	flex-direction: row;
 	gap: 5px;
 }
@@ -58,13 +58,13 @@
 	font-size: 20px;
 }
 
-.answer-text {
+.option-text {
 	border: none;
 	color: black;
 	font-size: 18px;
 }
 
-.input.answer-text {
+.input.option-text {
 	border: 2px solid lightgray;
 }
 

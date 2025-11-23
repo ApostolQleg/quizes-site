@@ -12,7 +12,7 @@ addQuizElement("div", container, "title main", selected.title);
 // create question blocks
 selected.questions.forEach((question, qIndex) => {
 	// create question title element
-	const wrapper = addQuizElement("divr", container, "wrapper");
+	const wrapper = addQuizElement("div", container, "wrapper");
 	addQuizElement("div", wrapper, "title", question.text);
 
 	// create options container
@@ -21,7 +21,7 @@ selected.questions.forEach((question, qIndex) => {
 	// create option elements
 	question.options.forEach((option, oIndex) => {
 		const optionElement = addQuizElement("div", options, "option");
-		const inputElement = addQuizElement("input", optionElement, question, option);
+		const inputElement = addQuizElement("input", optionElement, qIndex, option.id);
 		const labelElement = addQuizElement("label", optionElement, "option-text", option.text);
 
 		// for attribute to link label and input
@@ -37,22 +37,22 @@ const submitBtn = addQuizElement("button", container, "button submit", "Submit")
 submitBtn.addEventListener("click", () => {
 	// gather answers
 	const answers = [];
-	selected.questions.forEach((question) => {
-		const selectedOptions = [];
-		question.options.forEach((option) => {
-			const optionInput = document.querySelector(
-				`input[name="q-${CSS.escape(question.text)}"][value="${CSS.escape(option.id)}"]`
-			);
-			if (optionInput.checked) {
-				selectedOptions.push(option.id);
-			}
-		});
-		answers.push(selectedOptions);
-	});
-
-	// calculate summary
 	let summary = 0;
 	selected.questions.forEach((question, qIndex) => {
+		question.options.forEach((option, oIndex) => {
+			const optionInput = document.querySelector(
+				`input[name="${qIndex}"][value="${oIndex}"]`
+			);
+
+			console.log(optionInput);
+
+			if (optionInput.checked) {
+				answers[qIndex] = answers[qIndex] || [];
+				answers[qIndex].push(oIndex);
+			}
+		});
+
+		// calculate summary
 		const correctOptionIds = question.options
 			.filter((option) => option.isCorrect)
 			.map((option) => option.id);

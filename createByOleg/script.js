@@ -1,10 +1,4 @@
-import {
-	storage,
-	addQuizElement,
-	addInputElement,
-	addQuestionElement,
-	updateQuestionNumbers,
-} from "/components.js";
+import { storage, addQuizElement, addInputElement, addQuestionElement } from "/components.js";
 
 // DOM elements
 const container = document.getElementById("container");
@@ -26,7 +20,6 @@ const addQuestionBtn = addQuizElement("button", container, "button add-question"
 // add question button functionality
 addQuestionBtn.onclick = () => {
 	addQuestionElement(wrapper);
-	updateQuestionNumbers(wrapper);
 };
 
 // create wrapper to hold questions
@@ -34,7 +27,52 @@ const wrapper = addQuizElement("div", container, "questions-wrapper");
 
 // add first question by default
 addQuestionElement(wrapper);
-updateQuestionNumbers(wrapper);
 
-// create button to submit quiz
-addQuizElement("button", container, "button create-quiz", "Створити вікторину");
+// create button to create quiz
+const createQuizBtn = addQuizElement(
+	"button",
+	container,
+	"button create-quiz",
+	"Створити вікторину"
+);
+
+// create button functionality
+createQuizBtn.onclick = () => {
+	// gather quiz data
+	const quiz = {
+		title: titleContainer.querySelector(".input").value,
+		description: container.querySelector(".input.description").value,
+		questions: [],
+	};
+
+	// gather questions data
+	const questionContainers = wrapper.querySelectorAll(".container.question-container");
+	questionContainers.forEach((qContainer) => {
+		const questionText = qContainer.querySelector(".input.question-text").value;
+		const question = {
+			text: questionText,
+			options: [],
+		};
+
+		// gather options data
+		const optionContainer = [...qContainer.querySelectorAll(".container.option-container")];
+		optionContainer.forEach((oContainer, oIndex) => {
+			const optionText = oContainer.querySelector(".input.option-text").value;
+			const isCorrect = oContainer.querySelector('input[type="radio"]').checked;
+			const option = {
+				id: oIndex,
+				text: optionText,
+				isCorrect: isCorrect,
+			};
+			question.options.push(option);
+		});
+		quiz.questions.push(question);
+	});
+
+	// save quiz to local storage
+	storage.quizzes.push(quiz);
+	localStorage.setItem("storage", JSON.stringify(storage));
+
+	// redirect to home page
+	window.location.href = "/";
+};

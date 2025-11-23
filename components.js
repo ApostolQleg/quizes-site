@@ -23,7 +23,7 @@ loadDefaultTests();
 export function addQuizElement(
 	element,
 	parent,
-	className = "",
+	classOrName = "",
 	valueOrHTML = "",
 	checked = false,
 	disabled = false
@@ -31,12 +31,12 @@ export function addQuizElement(
 	const newElement = document.createElement(element);
 	if (element === "input") {
 		newElement.type = "radio";
-		newElement.name = `q-${className.text}`;
-		newElement.value = valueOrHTML.id;
+		newElement.name = classOrName;
+		newElement.value = valueOrHTML;
 		newElement.checked = checked;
 		newElement.disabled = disabled;
 	} else {
-		newElement.className = className;
+		newElement.className = classOrName;
 		newElement.innerHTML = valueOrHTML;
 	}
 	parent.appendChild(newElement);
@@ -67,21 +67,21 @@ export function addDescriptionButton(text, ref, quiz) {
 	};
 }
 
-function addAnswerElement(parent) {
+function addOptionElement(parent, name) {
 	// div for first answer, with checkbox, text input and delete button
-	const answerContainer = addQuizElement("div", parent, "container answer-container");
+	const optionContainer = addQuizElement("div", parent, "container option-container");
 
-	// create elements inside answer container
-	addQuizElement("input", answerContainer, "input correct-answer");
-	addInputElement(answerContainer, "input answer-text", "Текст відповіді");
-	const deleteBtn = addQuizElement("button", answerContainer, "button delete-answer", "Видалити");
+	// create elements inside option container
+	addQuizElement("input", optionContainer, name, name);
+	addInputElement(optionContainer, "input option-text", "Текст відповіді");
+	const deleteBtn = addQuizElement("button", optionContainer, "button delete-option", "Видалити");
 
-	// delete answer functionality
+	// delete option functionality
 	deleteBtn.onclick = () => {
-		answerContainer.remove();
+		optionContainer.remove();
 	};
 
-	return answerContainer;
+	return optionContainer;
 }
 
 export function addQuestionElement(parent) {
@@ -115,40 +115,47 @@ export function addQuestionElement(parent) {
 	// create input for question text
 	addInputElement(questionContainer, "input question-text", "Текст питання");
 
-	// create div to hold answers and add answer button
-	const answersContainer = addQuizElement(
+	// create div to hold options and add option button
+	const optionsContainer = addQuizElement(
 		"div",
 		questionContainer,
-		"container answers-container"
+		"container options-container"
 	);
 
-	// create answer elements inside answers container
-	addQuizElement("label", answersContainer, "answer-text", "Варіанти відповіді");
+	// create option elements inside options container
+	addQuizElement("label", optionsContainer, "option-text", "Варіанти відповіді");
 
-	// create two answer elements by default
-	addAnswerElement(answersContainer);
-	addAnswerElement(answersContainer);
+	// update number of question
+	updateQuestionNumbers(parent);
 
-	// create button to add answer
-	const addAnswerButton = addQuizElement(
+	// get question id for naming options (to group radio buttons)
+	const questionId = questionContainer.id;
+
+	// create two option elements by default
+	addOptionElement(optionsContainer, questionId);
+	addOptionElement(optionsContainer, questionId);
+
+	// create button to add option
+	const addOptionButton = addQuizElement(
 		"button",
 		questionContainer,
-		"button add-answer",
+		"button add-option",
 		"Додати відповідь"
 	);
 
-	// button functionality to add answer
-	addAnswerButton.onclick = () => {
-		addAnswerElement(answersContainer);
+	// button functionality to add option
+	addOptionButton.onclick = () => {
+		addOptionElement(optionsContainer, questionId);
 	};
 }
 
 // something specific for updating question numbers in createByOleg
-export function updateQuestionNumbers(parent) {
+function updateQuestionNumbers(parent) {
 	const questionContainers = parent.querySelectorAll(".question-container");
 	questionContainers.forEach((container, index) => {
 		const questionLabel = container.querySelector(".question-text");
 		questionLabel.textContent = `Питання №${index + 1}`;
+		container.id = index;
 	});
 }
 
