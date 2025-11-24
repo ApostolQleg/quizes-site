@@ -58,14 +58,16 @@
 	font-size: 20px;
 }
 
-.option-text {
+.options-text {
 	border: none;
 	color: black;
 	font-size: 18px;
 }
 
-.input.option-text {
+.option-text {
 	border: 2px solid lightgray;
+	color: black;
+	font-size: 18px;
 }
 
 .char-count {
@@ -80,8 +82,14 @@
 	gap: 15px;
 }
 
-.create-quiz {
+.save-quiz {
 	margin-top: auto;
 	align-self: center;
 	width: 100%;
+	padding: 10px 20px;
+}
+
+.input-error {
+	background-color: rgba(255, 0, 0, 0.2);
+	border: 2px solid red;
 }

@@ -124,7 +124,7 @@ export function addQuestionElement(parent) {
 	);
 
 	// create option elements inside options container
-	addQuizElement("label", optionsContainer, "option-text", "Варіанти відповіді");
+	addQuizElement("label", optionsContainer, "options-text", "Варіанти відповіді");
 
 	// update number of question
 	updateQuestionNumbers(parent);

@@ -46,16 +46,11 @@ const wrapper = addQuizElement("div", container, "questions-wrapper");
 // add first question by default
 addQuestionElement(wrapper);
 
-// create button to create quiz
-const createQuizBtn = addQuizElement(
-	"button",
-	container,
-	"button create-quiz",
-	"Створити вікторину"
-);
+// create button to save quiz
+const saveQuizBtn = addQuizElement("button", container, "button save-quiz", "Зберегти вікторину");
 
 // create button functionality
-createQuizBtn.onclick = () => {
+saveQuizBtn.onclick = () => {
 	// gather quiz data
 	const quiz = {
 		title: titleContainer.querySelector(".input").value,
@@ -87,10 +82,22 @@ createQuizBtn.onclick = () => {
 		quiz.questions.push(question);
 	});
 
-	// save quiz to local storage
-	storage.quizzes.push(quiz);
-	localStorage.setItem("storage", JSON.stringify(storage));
+	// validation
+	const inputs = container.querySelectorAll("input:not([type=radio])");
+	inputs.forEach((input) => {
+		if (input.value.trim() === "") {
+			input.classList.add("input-error");
+		} else {
+			input.classList.remove("input-error");
+		}
+	});
 
-	// redirect to home page
-	window.location.href = "/";
+	if (container.querySelectorAll(".input-error").length === 0) {
+		// save quiz to local storage
+		storage.quizzes.push(quiz);
+		localStorage.setItem("storage", JSON.stringify(storage));
+
+		// redirect to home page
+		window.location.href = "/";
+	}
 };

@@ -5,6 +5,7 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<title>QuizTime</title>
 		<link rel="stylesheet" href="/create/styles.css" />
+		<link rel="icon" href="/textures/logo-icon.png" type="image/png" />
 		<link
 			rel="stylesheet"
 			href="https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400..700&display=swap"
@@ -34,7 +35,7 @@
 			<a href="/results" class="toolbar">Results</a>
 			<a href="/help" class="toolbar">Help</a>
 		</div>
-		
+
 		<div class="container" id="container">
 			<div class="quizName">
 				<input type="text" class="quizTitle" placeholder="Назва опитування" />
@@ -62,48 +63,28 @@
 				<input type="text" class="questionText" placeholder="Текст питання" />
 				<p class="variant">Варіанти відповіді</p>
 
-                <label>
-                    <input
-                        type="checkbox"
-                        name="option1"
-                        value="1"
-                        class="isCorrect"
-                    /><input
-                        type="text"
-                        class="optionText"
-                        placeholder="Варіант відповіді"
-                        value="Так"
-                    />
-                    <button
-                        class="material-symbols-outlined"
-                        id="deletevariant"
-                    >
-                        delete
-                    </button>
-                </label>
-                <label>
-                    <input
-                        type="checkbox"
-                        name="option1"
-                        value="1"
-                        class="isCorrect"
-                    /><input
-                        type="text"
-                        class="optionText"
-                        placeholder="Варіант відповіді"
-                        value="Ні"
-                    />
-                    <button
-                        class="material-symbols-outlined"
-                        id="deletevariant"
-                    >
-                        delete
-                    </button>
-                </label>
+				<label>
+					<input type="checkbox" name="option1" value="1" class="isCorrect" /><input
+						type="text"
+						class="optionText"
+						placeholder="Варіант відповіді"
+						value="Так"
+					/>
+					<button class="material-symbols-outlined" id="deletevariant">delete</button>
+				</label>
+				<label>
+					<input type="checkbox" name="option1" value="1" class="isCorrect" /><input
+						type="text"
+						class="optionText"
+						placeholder="Варіант відповіді"
+						value="Ні"
+					/>
+					<button class="material-symbols-outlined" id="deletevariant">delete</button>
+				</label>
 
-                <!-- Тут будуть відображатися створені опитування -->
-                <button class="addvariant" id="addvariant">+</button>
-            </div>
+				<!-- Тут будуть відображатися створені опитування -->
+				<button class="addvariant" id="addvariant">+</button>
+			</div>
 
 			<button class="saveQuizButton" id="saveQuizButton">Зберегти опитування</button>
 		</div>
