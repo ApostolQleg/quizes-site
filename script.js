@@ -38,7 +38,7 @@ quizzes.forEach((quiz, qIndex) => {
 		addQuizElement("div", description, "description-buttons");
 
 		// create function buttons
-		addDescriptionButton("Manage", "/manage", quiz, qIndex);
+		addDescriptionButton("Manage", "/manageByOleg", quiz, qIndex);
 		addDescriptionButton("Start Quiz", "/quiz", quiz, qIndex);
 		addDescriptionButton("Delete", "/del", quiz, qIndex);
 	});

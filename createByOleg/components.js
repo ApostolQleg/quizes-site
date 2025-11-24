@@ -259,8 +259,15 @@ export function initializeQuizCreation(container, selectedQuiz = null) {
 		});
 
 		if (container.querySelectorAll(".input-error").length === 0) {
-			// save quiz to local storage
-			storage.quizzes.push(quiz);
+			// save quiz to local storage or update existing one
+			if (selectedQuiz) {
+				// find index by title of existing quiz and update this quiz
+				const quizIndex = storage.quizzes.findIndex((q) => q.title === selectedQuiz.title);
+				storage.quizzes[quizIndex] = quiz;
+			} else {
+				// add new quiz
+				storage.quizzes.push(quiz);
+			}
 			localStorage.setItem("storage", JSON.stringify(storage));
 
 			// redirect to home page
