@@ -42,32 +42,29 @@
 	text-align: left;
 	border-bottom: 2px solid lightgray;
 	outline: none;
-	color: white;
-	font-size: 24px;
+	color: black;
+	font-size: 18px;
 	font-family: "Pixelify Sans", sans-serif;
+}
+
+.title {
+	min-width: 400px;
+	font-size: 24px;
+	color: white;
 }
 
 .description {
 	width: 80%;
-	font-size: 18px;
+	color: white;
 	border: 2px solid lightgray;
 }
 
 .question-text {
-	color: black;
 	font-size: 20px;
-}
-
-.options-text {
-	border: none;
-	color: black;
-	font-size: 18px;
 }
 
 .option-text {
 	border: 2px solid lightgray;
-	color: black;
-	font-size: 18px;
 }
 
 .char-count {
