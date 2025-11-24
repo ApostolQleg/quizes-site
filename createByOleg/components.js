@@ -15,12 +15,12 @@ function addInputElement(parent, className, placeholder = "", value = "") {
 }
 
 // function to add option element
-function addOptionElement(parent, name, value = "") {
+function addOptionElement(parent, name, value = "", checked = false) {
 	// div for first answer, with checkbox, text input and delete button
 	const optionContainer = addQuizElement("div", parent, "container option-container");
 
 	// create elements inside option container
-	addQuizElement("input", optionContainer, name, name);
+	addQuizElement("input", optionContainer, name, name, checked);
 	addInputElement(optionContainer, "input option-text", "Текст відповіді", value);
 	const deleteBtn = addQuizElement("button", optionContainer, "button delete-option", "Видалити");
 
