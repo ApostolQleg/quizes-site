@@ -7,9 +7,27 @@ const container = document.getElementById("container");
 const titleContainer = addQuizElement("div", container, "container title-container");
 
 // create this elements inside title container
-addInputElement(titleContainer, "input", "Назва вікторини");
-addQuizElement("div", titleContainer, "char-count", "0/30");
-addQuizElement("button", titleContainer, "button", "Очистити");
+const titleInput = addInputElement(titleContainer, "input", "Назва вікторини");
+const charCount = addQuizElement("div", titleContainer, "char-count", "0/30");
+const clearButton = addQuizElement("button", titleContainer, "button", "Очистити");
+
+// character count functionality
+titleInput.oninput = () => {
+	const currentLength = titleInput.value.length;
+	charCount.textContent = `${currentLength}/30`;
+	if (currentLength >= 30) {
+		titleInput.disabled = true;
+	} else {
+		titleInput.disabled = false;
+	}
+};
+
+// clear button functionality
+clearButton.onclick = () => {
+	titleInput.value = "";
+	titleInput.disabled = false;
+	charCount.textContent = "0/30";
+};
 
 // create input for description
 addInputElement(container, "input description", "Опис вікторини");

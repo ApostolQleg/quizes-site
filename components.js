@@ -43,11 +43,12 @@ export function addQuizElement(
 	return newElement;
 }
 
-export function addInputElement(parent, className, placeholder = "") {
+export function addInputElement(parent, className, placeholder = "", value = "") {
 	const newElement = document.createElement("input");
 	newElement.className = className;
 	newElement.type = "text";
 	newElement.placeholder = placeholder;
+	newElement.value = value;
 	parent.appendChild(newElement);
 	return newElement;
 }
@@ -67,13 +68,13 @@ export function addDescriptionButton(text, ref, quiz) {
 	};
 }
 
-function addOptionElement(parent, name) {
+function addOptionElement(parent, name, value = "") {
 	// div for first answer, with checkbox, text input and delete button
 	const optionContainer = addQuizElement("div", parent, "container option-container");
 
 	// create elements inside option container
 	addQuizElement("input", optionContainer, name, name);
-	addInputElement(optionContainer, "input option-text", "Текст відповіді");
+	addInputElement(optionContainer, "input option-text", "Текст відповіді", value);
 	const deleteBtn = addQuizElement("button", optionContainer, "button delete-option", "Видалити");
 
 	// delete option functionality
@@ -132,8 +133,8 @@ export function addQuestionElement(parent) {
 	const questionId = questionContainer.id;
 
 	// create two option elements by default
-	addOptionElement(optionsContainer, questionId);
-	addOptionElement(optionsContainer, questionId);
+	addOptionElement(optionsContainer, questionId, "Так");
+	addOptionElement(optionsContainer, questionId, "Ні");
 
 	// create button to add option
 	const addOptionButton = addQuizElement(
