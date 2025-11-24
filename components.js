@@ -43,12 +43,12 @@ export function addQuizElement(
 	return newElement;
 }
 
-export function addDescriptionButton(text, ref, quiz) {
+export function addDescriptionButton(text, ref, quiz, qIndex) {
 	const wrapper = document.getElementsByClassName("description-buttons")[0];
 	const button = addQuizElement("button", wrapper, "description-button", text);
 	button.onclick = () => {
 		if (ref === "/del") {
-			storage.quizzes = storage.quizzes.filter((q) => q.title !== quiz.title);
+			storage.quizzes = storage.quizzes.filter((q, index) => index !== qIndex);
 			localStorage.setItem("storage", JSON.stringify(storage));
 			window.location.reload();
 		} else {

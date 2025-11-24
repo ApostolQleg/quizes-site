@@ -1,4 +1,4 @@
-import { storage, addDescriptionButton, addQuizElement} from "./components.js";
+import { storage, addDescriptionButton, addQuizElement } from "./components.js";
 
 // DOM elements
 const container = document.getElementById("container");
@@ -7,7 +7,7 @@ const container = document.getElementById("container");
 const quizzes = storage?.quizzes || [];
 
 // Create quiz buttons
-quizzes.forEach((quiz) => {
+quizzes.forEach((quiz, qIndex) => {
 	// constants of text
 	const quizText = quiz.title + "<br>Questions: " + quiz.questions.length;
 	const descText = quiz.title + "<br>" + quiz.description;
@@ -38,8 +38,8 @@ quizzes.forEach((quiz) => {
 		addQuizElement("div", description, "description-buttons");
 
 		// create function buttons
-		addDescriptionButton("Manage", "/manage", quiz);
-		addDescriptionButton("Start Quiz", "/quiz", quiz);
-		addDescriptionButton("Delete", "/del", quiz);
+		addDescriptionButton("Manage", "/manage", quiz, qIndex);
+		addDescriptionButton("Start Quiz", "/quiz", quiz, qIndex);
+		addDescriptionButton("Delete", "/del", quiz, qIndex);
 	});
 });
